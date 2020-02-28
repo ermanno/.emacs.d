@@ -7,8 +7,8 @@
 (package-initialize)
 (setq use-package-always-ensure t)
 
-(setq custom-file "~/.emacs.d/custom-settings.el")
-(load custom-file t)
+;; (setq custom-file "~/.emacs.d/custom-settings.el")
+;; (load custom-file t)
 
 ;; GNU ELPA is already part of package-archives, add melpa
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
