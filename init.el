@@ -69,3 +69,8 @@
   :config
   (global-undo-tree-mode 1))
 
+;; Transpose frame
+(use-package transpose-frame
+  :ensure t
+  :bind ("C-c t" . transpose-frame))
+
