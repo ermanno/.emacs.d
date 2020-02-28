@@ -150,6 +150,10 @@
   :commands er/expand-region
   :bind ("C-=" . er/expand-region))
 
+;; YAML support
+(use-package yaml-mode
+  :mode "\\.yaml\\'")
+
 ;; Org mode
 (require 'org-mouse)
 
