@@ -12,7 +12,8 @@
 
 ;; GNU ELPA is already part of package-archives, add melpa
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
-(package-refresh-contents)
+(unless package-archive-contents
+  (package-refresh-contents))
 
 ;; Install use-package if it is not already installed
 (unless (package-installed-p 'use-package)
