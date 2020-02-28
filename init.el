@@ -60,6 +60,8 @@
 
 ;; Projectile
 (use-package projectile
+  :init
+  (setq projectile-completion-system 'ivy)
   :bind-keymap
   ("C-c p" . projectile-command-map))
 
