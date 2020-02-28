@@ -138,3 +138,8 @@
       ad-do-it
       (delete-other-windows))))
 
+;; Neotree
+(use-package neotree
+  :ensure t
+  :bind ("<f5>" . neotree-toggle))
+
