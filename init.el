@@ -148,3 +148,18 @@
   :commands er/expand-region
   :bind ("C-=" . er/expand-region))
 
+;; Org mode
+(require 'org-mouse)
+
+(setq org-use-speed-commands t
+      org-src-fontify-natively t
+      org-adapt-indentation nil
+      org-hide-emphasis-markers t
+      org-edit-src-content-indentation 0)
+
+(defun my-org-mode-hook ()
+  "My hook for org mode, setting up spell checking, word wrapping and other niceties."
+  (ispell-change-dictionary "english")
+  (flyspell-mode)
+  (visual-line-mode))
+(add-hook 'org-mode-hook 'my-org-mode-hook)
