@@ -41,3 +41,8 @@
 (delete-selection-mode)
 (defalias 'yes-or-no-p 'y-or-n-p)
 (defalias 'list-buffers 'ibuffer)
+
+;; Projectile
+(use-package projectile
+  :bind-keymap
+  ("C-c p" . projectile-command-map))
