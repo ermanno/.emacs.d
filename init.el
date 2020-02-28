@@ -38,6 +38,9 @@
 (use-package hl-todo
   :config (global-hl-todo-mode))
 
+(use-package rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode))
+
 ;; UX
 (global-auto-revert-mode)
 (winner-mode)
