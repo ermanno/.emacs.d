@@ -41,6 +41,15 @@
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
+(use-package smart-mode-line
+  :custom
+  (sml/no-confirm-load-theme t)
+  (sml/theme 'light)
+  (sml/name-width 32)
+  (sml/shorten-modes nil)
+  (sml/replacer-regexp-list nil)
+  :config (sml/setup))
+
 ;; UX
 (global-auto-revert-mode)
 (winner-mode)
