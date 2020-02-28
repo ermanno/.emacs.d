@@ -62,3 +62,10 @@
 (use-package projectile
   :bind-keymap
   ("C-c p" . projectile-command-map))
+
+;; Undo tree
+(use-package undo-tree
+  :ensure t
+  :config
+  (global-undo-tree-mode 1))
+
