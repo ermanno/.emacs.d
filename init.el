@@ -143,3 +143,8 @@
   :ensure t
   :bind ("<f5>" . neotree-toggle))
 
+;; Expand region
+(use-package expand-region
+  :commands er/expand-region
+  :bind ("C-=" . er/expand-region))
+
