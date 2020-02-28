@@ -21,7 +21,7 @@
 (setq use-package-always-ensure t)
 (require 'use-package)
 (use-package auto-compile
-	     :config (auto-compile-on-load-mode))
+  :config (auto-compile-on-load-mode))
 (setq load-prefer-newer t)
 
 ;; UI
