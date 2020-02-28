@@ -35,6 +35,9 @@
 (column-number-mode)
 (show-paren-mode)
 
+(use-package hl-todo
+  :config (global-hl-todo-mode))
+
 ;; UX
 (global-auto-revert-mode)
 (winner-mode)
