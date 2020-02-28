@@ -23,3 +23,21 @@
 (use-package auto-compile
 	     :config (auto-compile-on-load-mode))
 (setq load-prefer-newer t)
+
+;; UI
+(setq inhibit-startup-screen t
+      frame-title-format "%b"
+      visible-bell 1)
+(scroll-bar-mode -1)
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(column-number-mode)
+(show-paren-mode)
+
+;; UX
+(global-auto-revert-mode)
+(winner-mode)
+(windmove-default-keybindings)
+(delete-selection-mode)
+(defalias 'yes-or-no-p 'y-or-n-p)
+(defalias 'list-buffers 'ibuffer)
