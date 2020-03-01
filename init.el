@@ -33,6 +33,7 @@
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (blink-cursor-mode -1)
+(load-theme 'dichromacy t)
 (column-number-mode)
 (show-paren-mode)
 
@@ -45,7 +46,7 @@
 (use-package smart-mode-line
   :custom
   (sml/no-confirm-load-theme t)
-  (sml/theme 'light)
+  (sml/theme 'dark)
   (sml/name-width 32)
   (sml/shorten-modes nil)
   (sml/replacer-regexp-list nil)
