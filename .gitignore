@@ -7,3 +7,5 @@ smex-items
 transient/
 games/
 bookmarks
+.mc-lists.el
+eshell/
