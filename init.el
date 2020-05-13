@@ -122,7 +122,7 @@
   (global-set-key (kbd "C-x l") 'counsel-locate)
   (global-set-key (kbd "C-c k") 'counsel-compile)
   (global-set-key (kbd "C-c r") 'counsel-recentf)
-  (global-set-key (kbd "C-c i") 'counsel-imenu)
+  (global-set-key (kbd "C-c h") 'counsel-imenu)
   (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history))
 
 ;; Magit
