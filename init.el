@@ -165,6 +165,11 @@
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
 
+;; Perspectives -- https://github.com/nex3/perspective-el
+(use-package perspective
+  :config
+  (persp-mode))
+
 ;; Org mode
 (require 'org-mouse)
 
