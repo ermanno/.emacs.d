@@ -9,3 +9,6 @@ games/
 bookmarks
 .mc-lists.el
 eshell/
+.lsp-session-v1
+session*
+
