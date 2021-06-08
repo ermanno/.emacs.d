@@ -4,7 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(perspective ox-hugo magit multiple-cursors transpose-frame markdown-mode yaml-mode expand-region neotree counsel smex swiper ivy undo-tree projectile auto-compile use-package))
+   '(unfill perspective ox-hugo magit multiple-cursors transpose-frame markdown-mode yaml-mode expand-region neotree counsel smex swiper ivy undo-tree projectile auto-compile use-package))
  '(sml/name-width 32)
  '(sml/no-confirm-load-theme t)
  '(sml/replacer-regexp-list nil)
