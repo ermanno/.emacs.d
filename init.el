@@ -216,3 +216,5 @@ See `org-capture-templates' for more information."
                  ;; symlink pointing to the actual location of all-posts.org!
                  (file+olp "~/blog/blog.org" "Posts")
                  (function org-hugo-new-subtree-post-capture-template))))
+(put 'narrow-to-region 'disabled nil)
+(put 'narrow-to-page 'disabled nil)
