@@ -5,6 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    '(unfill perspective ox-hugo magit multiple-cursors transpose-frame markdown-mode yaml-mode expand-region neotree counsel smex swiper ivy undo-tree projectile auto-compile use-package))
+ '(python-shell-interpreter "python3")
  '(sml/name-width 32)
  '(sml/no-confirm-load-theme t)
  '(sml/replacer-regexp-list nil)
