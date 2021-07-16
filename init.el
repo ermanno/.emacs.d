@@ -190,6 +190,10 @@
   (visual-line-mode))
 (add-hook 'org-mode-hook 'my-org-mode-hook)
 
+(use-package org
+  :bind (:map org-mode-map
+              ("C-c b" . org-insert-structure-template)))
+
 ;; Org mode Hugo support
 (use-package ox-hugo
   :ensure t
