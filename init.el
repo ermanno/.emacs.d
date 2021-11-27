@@ -170,6 +170,28 @@
   :config
   (persp-mode))
 
+;; Show parens, not Lisp specific, but most useful for lisps
+(use-package rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode)
+  :diminish rainbow-delimiters-mode)
+
+;; Smartparens
+(use-package smartparens
+  :ensure t
+  :config
+  (setq sp-show-pair-from-inside nil)
+  (require 'smartparens-config)
+  :diminish smartparens-mode)
+
+;; Scheme
+(use-package geiser-mit
+  :ensure t
+  :init (progn
+	  (setq geiser-mit-binary "/usr/bin/scheme"
+		geiser-active-implementations '(mit))
+	  (add-hook 'scheme-mode-hook 'geiser-mode))
+  :commands geiser-mode)
+
 ;; Unfill
 (use-package unfill
   :bind ([remap fill-paragraph] . unfill-toggle))
