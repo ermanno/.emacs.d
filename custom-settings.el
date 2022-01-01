@@ -4,7 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(smartparens geiser-mit geiser unfill perspective ox-hugo magit multiple-cursors transpose-frame markdown-mode yaml-mode expand-region neotree counsel smex swiper ivy undo-tree projectile auto-compile use-package))
+   '(vs-light-theme anki-editor smartparens geiser-mit geiser unfill perspective ox-hugo magit multiple-cursors transpose-frame markdown-mode yaml-mode expand-region neotree counsel smex swiper ivy undo-tree projectile auto-compile use-package))
  '(python-shell-interpreter "python3")
  '(sml/name-width 32 nil nil "Customized with use-package smart-mode-line")
  '(sml/no-confirm-load-theme t nil nil "Customized with use-package smart-mode-line")
