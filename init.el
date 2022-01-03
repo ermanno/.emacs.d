@@ -243,7 +243,11 @@
         ("t" "Anki TCP/IP stack"
          entry
          (file+headline org-my-anki-file "TCP/IP")
-         "* %<%H:%M>\n:PROPERTIES:\n:ANKI_NOTE_TYPE: Basic\n:ANKI_DECK: TCP/IP\n:END:\n** Front\n%?\n** Back\n")))
+         "* %<%H:%M>\n:PROPERTIES:\n:ANKI_NOTE_TYPE: Basic\n:ANKI_DECK: TCP/IP\n:END:\n** Front\n%?\n** Back\n")
+	("s" "Anki Security stack"
+         entry
+         (file+headline org-my-anki-file "Security")
+         "* %<%H:%M>\n:PROPERTIES:\n:ANKI_NOTE_TYPE: Basic\n:ANKI_DECK: Security\n:END:\n** Front\n%?\n** Back\n")))
 
 ;; Allow Emacs to access content from clipboard.
 (setq x-select-enable-clipboard t
