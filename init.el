@@ -219,6 +219,15 @@
   :bind (:map org-mode-map
               ("C-c b" . org-insert-structure-template)))
 
+;; org-babel
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '(
+   (emacs-lisp . t)
+   (python . t)
+   (org . t)
+   ))
+
 ;; From https://yiufung.net/post/anki-org/
 ;; For the moment I am leaving out the cloze stuff, as I don't use it.
 (use-package anki-editor
