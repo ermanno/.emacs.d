@@ -198,6 +198,37 @@
 (use-package unfill
   :bind ([remap fill-paragraph] . unfill-toggle))
 
+;; yasnippet
+(use-package yasnippet
+  :ensure t
+  :config
+  (progn (setq yas-verbosity 1
+	       yas-wrap-around-region t)
+	 (yas-reload-all)
+	 (yas-global-mode)))
+
+(use-package yasnippet-snippets
+  :ensure t)
+
+;; PlantUML mode
+;; https://github.com/skuro/plantuml-mode
+(use-package plantuml-mode
+  :ensure t
+  :mode "\\.plu\\'"
+  :custom
+  (plantuml-jar-path "~/bin/plantuml-1.2022.0.jar")
+  (plantuml-default-exec-mode 'jar)
+  (org-plantuml-jar-path (expand-file-name "~/bin/plantuml-1.2022.0.jar"))
+  (org-startup-with-inline-images t)
+  )
+
+(use-package flycheck-plantuml
+  :ensure t
+  :commands (flycheck-plantuml-setup)
+  :init
+  (with-eval-after-load 'flycheck
+    (flycheck-plantuml-setup)))
+
 ;; Org mode
 (require 'org-mouse)
 
@@ -226,6 +257,7 @@
    (emacs-lisp . t)
    (python . t)
    (org . t)
+   (plantuml . t)
    ))
 
 ;; From https://yiufung.net/post/anki-org/
