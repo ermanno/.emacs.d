@@ -260,6 +260,17 @@
    (plantuml . t)
    ))
 
+;; Redisplay images after evaluating with C-c C-c
+(add-hook 'org-babel-after-execute-hook
+          (lambda ()
+            (when org-inline-image-overlays
+              (org-redisplay-inline-images))))
+
+;; Don't ask for confirmation when evaluating PlantUML code
+(defun my-org-confirm-babel-evaluate (lang body)
+  (not (string= lang "plantuml")))
+(setq org-confirm-babel-evaluate #'my-org-confirm-babel-evaluate)
+
 ;; From https://yiufung.net/post/anki-org/
 ;; For the moment I am leaving out the cloze stuff, as I don't use it.
 (use-package anki-editor
