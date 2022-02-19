@@ -288,7 +288,7 @@
   )
 
 ;; Org-capture templates
-(setq org-my-anki-file "~/Documents/learning.org")
+(setq org-my-anki-file "~/Documents/anki/learning.org")
 
 (setq org-capture-templates
       '(
