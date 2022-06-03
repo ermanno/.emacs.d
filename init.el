@@ -144,6 +144,14 @@
       ad-do-it
       (delete-other-windows))))
 
+;; Git gutter (or fringe if we are in graphics mode)
+(let ((package-name (if (display-graphic-p)
+                        "git-gutter-fringe"
+                      "git-gutter")))
+  (eval `(use-package ,package-name
+	   :ensure t
+	   :init (global-git-gutter-mode))))
+
 ;; Neotree
 (use-package neotree
   :ensure t
@@ -304,6 +312,13 @@
 ;; Allow Emacs to access content from clipboard.
 (setq x-select-enable-clipboard t
       x-select-enable-primary t)
+
+;; bash
+(defun shell-indentation-settings ()
+  (setq indent-tabs-mode nil
+	sh-basic-offset 2
+	sh-indentation 2))
+(add-hook 'sh-mode-hook #'shell-indentation-settings)
 
 (put 'narrow-to-region 'disabled nil)
 (put 'narrow-to-page 'disabled nil)
