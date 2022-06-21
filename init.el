@@ -174,7 +174,9 @@
 
 ;; Perspectives -- https://github.com/nex3/perspective-el
 (use-package perspective
-  :config
+  :custom
+  (persp-mode-prefix-key (kbd "C-c s"))
+  :init
   (persp-mode))
 
 ;; Show parens, not Lisp specific, but most useful for lisps
