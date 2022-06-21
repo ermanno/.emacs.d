@@ -32,12 +32,9 @@
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
-(setq-default cursor-type 'bar)
 (column-number-mode)
 (show-paren-mode)
-
-(use-package vs-light-theme
-  :config (load-theme 'vs-light t))
+(load-theme 'wombat t)
 
 (use-package hl-todo
   :config (global-hl-todo-mode))
