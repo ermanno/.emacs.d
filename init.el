@@ -247,7 +247,8 @@
       org-src-fontify-natively t
       org-adapt-indentation nil
       org-hide-emphasis-markers t
-      org-edit-src-content-indentation 0)
+      org-edit-src-content-indentation 0
+      org-agenda-files '("~/Documents/org"))
 
 (defun my-org-mode-hook ()
   "My hook for org mode, setting up spell checking, word wrapping and other niceties."
