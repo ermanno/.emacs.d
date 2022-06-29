@@ -74,6 +74,7 @@
 (use-package undo-tree
   :ensure t
   :config
+  (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
   (global-undo-tree-mode 1))
 
 ;; Transpose frame
