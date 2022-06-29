@@ -34,7 +34,11 @@
 (menu-bar-mode -1)
 (column-number-mode)
 (show-paren-mode)
-(load-theme 'wombat t)
+
+(use-package zenburn-theme
+  :ensure t
+  :config
+  (load-theme 'zenburn t))
 
 (use-package hl-todo
   :config (global-hl-todo-mode))
