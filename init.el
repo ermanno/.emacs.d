@@ -241,6 +241,9 @@
   (with-eval-after-load 'flycheck
     (flycheck-plantuml-setup)))
 
+;; JavaScript
+(setq js-indent-level 2)
+
 ;; Org mode
 (require 'org-mouse)
 
