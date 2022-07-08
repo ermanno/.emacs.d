@@ -27,7 +27,8 @@
 
 ;; Mac settings
 (when (eq system-type 'darwin)
-  (setq mac-command-modifier 'control))
+  (setq mac-command-modifier 'meta
+	mac-option-modifier 'control))
 
 ;; UI
 (setq inhibit-startup-screen t
