@@ -25,13 +25,17 @@
   :config (auto-compile-on-load-mode))
 (setq load-prefer-newer t)
 
+;; Mac settings
+(when (eq system-type 'darwin)
+  (setq mac-command-modifier 'control))
+
 ;; UI
 (setq inhibit-startup-screen t
       frame-title-format "%b"
       visible-bell 1)
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
-(menu-bar-mode -1)
+;(menu-bar-mode -1)
 (column-number-mode)
 (show-paren-mode)
 
