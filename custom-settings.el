@@ -4,7 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(git-gutter-fringe flycheck-plantuml plantuml-mode yasnippet-snippets yasnippet vs-light-theme anki-editor smartparens geiser-mit geiser unfill perspective ox-hugo magit multiple-cursors transpose-frame markdown-mode yaml-mode expand-region neotree counsel smex swiper ivy undo-tree projectile auto-compile use-package))
+   '(web-mode company tide git-gutter-fringe flycheck-plantuml plantuml-mode yasnippet-snippets yasnippet vs-light-theme anki-editor smartparens geiser-mit geiser unfill perspective ox-hugo magit multiple-cursors transpose-frame markdown-mode yaml-mode expand-region neotree counsel smex swiper ivy undo-tree projectile auto-compile use-package))
  '(python-shell-interpreter "python3"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
