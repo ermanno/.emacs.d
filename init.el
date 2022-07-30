@@ -339,36 +339,6 @@
   (not (string= lang "plantuml")))
 (setq org-confirm-babel-evaluate #'my-org-confirm-babel-evaluate)
 
-;; From https://yiufung.net/post/anki-org/
-;; For the moment I am leaving out the cloze stuff, as I don't use it.
-(use-package anki-editor
-  :after org
-  :bind (:map org-mode-map
-              ("<f9>" . anki-editor-push-tree))
-  :config
-  (setq anki-editor-create-decks t
-        anki-editor-org-tags-as-anki-tags t)
-
-  (defun anki-editor-push-tree ()
-    "Push all notes under a tree."
-    (interactive)
-    (anki-editor-push-notes '(4)))
-  )
-
-;; Org-capture templates
-(setq org-my-anki-file "~/Documents/anki/learning.org")
-
-(setq org-capture-templates
-      '(
-        ("t" "Anki TCP/IP stack"
-         entry
-         (file+headline org-my-anki-file "TCP/IP")
-         "* %<%H:%M>\n:PROPERTIES:\n:ANKI_NOTE_TYPE: Basic\n:ANKI_DECK: TCP/IP\n:END:\n** Front\n%?\n** Back\n")
-	("s" "Anki Security stack"
-         entry
-         (file+headline org-my-anki-file "Security")
-         "* %<%H:%M>\n:PROPERTIES:\n:ANKI_NOTE_TYPE: Basic\n:ANKI_DECK: Security\n:END:\n** Front\n%?\n** Back\n")))
-
 ;; Allow Emacs to access content from clipboard.
 (setq x-select-enable-clipboard t
       x-select-enable-primary t)
