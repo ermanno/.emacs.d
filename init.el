@@ -25,10 +25,10 @@
   :config (auto-compile-on-load-mode))
 (setq load-prefer-newer t)
 
-;; Mac settings
-(when (eq system-type 'darwin)
-  (setq mac-command-modifier 'meta
-	mac-option-modifier 'control))
+;; ;; Mac settings
+;; (when (eq system-type 'darwin)
+;;   (setq mac-command-modifier 'meta
+;; 	mac-option-modifier 'control))
 
 ;; UI
 (setq inhibit-startup-screen t
@@ -36,14 +36,14 @@
       visible-bell 1)
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
-;(menu-bar-mode -1)
 (column-number-mode)
 (show-paren-mode)
 
 (use-package zenburn-theme
   :ensure t
   :config
-  (load-theme 'zenburn t))
+  (load-theme 'zenburn t)
+  (set-face-attribute 'default nil :height 150))
 
 (use-package hl-todo
   :config (global-hl-todo-mode))
