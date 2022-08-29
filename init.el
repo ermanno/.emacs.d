@@ -367,15 +367,24 @@
         org-roam-ui-update-on-save t
         org-roam-ui-open-on-start t))
 
+
 ;; Anki Org mode integration
 ;; - https://rgoswami.me/posts/anki-decks-orgmode/
 ;; - https://yiufung.net/post/anki-org/
-
 (use-package anki-editor
   :after org
   :config
   (setq anki-editor-create-decks 't
         anki-editor-org-tags-an-anki-tags t))
+
+(setq org-my-anki-file "~/Documents/org-anki/anki.org")
+(setq org-capture-templates
+      '(("a" "Anki basic"
+         entry
+         (file+headline org-my-anki-file "Dispatch Shelf")
+         "* %?   %^g\n:PROPERTIES:\n:ANKI_NOTE_TYPE: Basic\n:ANKI_DECK: Mega\n:END:\n** Front\n%?\n** Back\n%x\n")))
+
+;; TODO Implement function where you push the "Dispatch Shelf" tree and refile the entries under the Exported tree
 
 
 ;; Allow Emacs to access content from clipboard.
