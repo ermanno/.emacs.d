@@ -28,7 +28,7 @@
 ;; ;; Mac settings
 ;; (when (eq system-type 'darwin)
 ;;   (setq mac-command-modifier 'meta
-;; 	mac-option-modifier 'control))
+;;      mac-option-modifier 'control))
 
 ;; UI
 (setq inhibit-startup-screen t
@@ -67,6 +67,9 @@
 (delete-selection-mode)
 (defalias 'yes-or-no-p 'y-or-n-p)
 (defalias 'list-buffers 'ibuffer)
+
+;; Use only spaces
+(setq-default indent-tabs-mode nil)
 
 ;; Projectile
 (use-package projectile
@@ -156,8 +159,8 @@
                         "git-gutter-fringe"
                       "git-gutter")))
   (eval `(use-package ,package-name
-	   :ensure t
-	   :init (global-git-gutter-mode))))
+           :ensure t
+           :init (global-git-gutter-mode))))
 
 ;; Neotree
 (use-package neotree
@@ -206,9 +209,9 @@
 (use-package geiser-mit
   :ensure t
   :init (progn
-	  (setq geiser-mit-binary "/usr/bin/scheme"
-		geiser-active-implementations '(mit))
-	  (add-hook 'scheme-mode-hook 'geiser-mode))
+          (setq geiser-mit-binary "/usr/bin/scheme"
+                geiser-active-implementations '(mit))
+          (add-hook 'scheme-mode-hook 'geiser-mode))
   :commands geiser-mode)
 
 ;; Unfill
@@ -220,9 +223,9 @@
   :ensure t
   :config
   (progn (setq yas-verbosity 1
-	       yas-wrap-around-region t)
-	 (yas-reload-all)
-	 (yas-global-mode)))
+               yas-wrap-around-region t)
+         (yas-reload-all)
+         (yas-global-mode)))
 
 (use-package yasnippet-snippets
   :ensure t)
@@ -347,8 +350,8 @@
   :custom
   (org-roam-directory "~/Documents/org-roam/roam-files")
   :bind (("C-c n l" . org-roam-buffer-toggle)
-	 ("C-c n f" . org-roam-node-find)
-	 ("C-c n i" . org-roam-node-insert))
+         ("C-c n f" . org-roam-node-find)
+         ("C-c n i" . org-roam-node-insert))
   :config
   (org-roam-setup))
 
@@ -356,9 +359,9 @@
   :after org-roam
   :config
   (setq org-roam-ui-sync-theme t
-	org-roam-ui-follow t
-	org-roam-ui-update-on-save t
-	org-roam-ui-open-on-start t))
+        org-roam-ui-follow t
+        org-roam-ui-update-on-save t
+        org-roam-ui-open-on-start t))
 
 ;; Anki Org mode integration
 ;; - https://rgoswami.me/posts/anki-decks-orgmode/
@@ -368,7 +371,7 @@
   :after org
   :config
   (setq anki-editor-create-decks 't
-	anki-editor-org-tags-an-anki-tags t))
+        anki-editor-org-tags-an-anki-tags t))
 
 
 ;; Allow Emacs to access content from clipboard.
@@ -377,9 +380,8 @@
 
 ;; bash
 (defun shell-indentation-settings ()
-  (setq indent-tabs-mode nil
-	sh-basic-offset 2
-	sh-indentation 2))
+  (setq sh-basic-offset 2
+        sh-indentation 2))
 (add-hook 'sh-mode-hook #'shell-indentation-settings)
 
 ;; rust
