@@ -360,6 +360,17 @@
 	org-roam-ui-update-on-save t
 	org-roam-ui-open-on-start t))
 
+;; Anki Org mode integration
+;; - https://rgoswami.me/posts/anki-decks-orgmode/
+;; - https://yiufung.net/post/anki-org/
+
+(use-package anki-editor
+  :after org
+  :config
+  (setq anki-editor-create-decks 't
+	anki-editor-org-tags-an-anki-tags t))
+
+
 ;; Allow Emacs to access content from clipboard.
 (setq x-select-enable-clipboard t
       x-select-enable-primary t)
