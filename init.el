@@ -71,6 +71,10 @@
 ;; Use only spaces
 (setq-default indent-tabs-mode nil)
 
+;; Allow Emacs to access content from clipboard.
+(setq x-select-enable-clipboard t
+      x-select-enable-primary t)
+
 ;; Projectile
 (use-package projectile
   :init
