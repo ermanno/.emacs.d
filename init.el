@@ -381,8 +381,9 @@
       '(("a" "Anki basic"
          entry
          (file+headline "~/Documents/org-anki/anki.org" "Dispatch Shelf")
-         "* %<%H:%M>   %^g\n:PROPERTIES:\n:ANKI_NOTE_TYPE: Basic\n:ANKI_DECK: Mega\n:END:\n** Front\n%?\n** Back\n%x\n")))
+         "* %?   %^g\n:PROPERTIES:\n:ANKI_NOTE_TYPE: Basic\n:ANKI_DECK: Mega\n:END:\n\n** Front\n\n\n** Back\n%x\n")))
 
+;; TODO Fix instertion of a newline between questions
 ;; TODO Implement function where you push the "Dispatch Shelf" tree and refile the entries under the Exported tree
 
 
