@@ -386,13 +386,7 @@
 ;; TODO Fix instertion of a newline between questions
 ;; TODO Implement function where you push the "Dispatch Shelf" tree and refile the entries under the Exported tree
 
-
-(defun anki-editor--anki-connect-invoke! (orig-fun &rest args)
-  (let ((request--curl-callback
-         (lambda (proc event) (request--curl-callback "localhost" proc event))))
-    (apply orig-fun args)))
-
-(advice-add 'anki-editor--anki-connect-invoke :around #'anki-editor--anki-connect-invoke!)
+(setq request-backend 'url-retrieve)
 
 ;; Allow Emacs to access content from clipboard.
 (setq x-select-enable-clipboard t
