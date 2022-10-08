@@ -375,7 +375,11 @@
   :after org
   :config
   (setq anki-editor-create-decks 't
-        anki-editor-org-tags-an-anki-tags t))
+        anki-editor-org-tags-an-anki-tags t)
+  (defun anki-editor-push-tree ()
+    "Push all notes under a tree."
+    (interactive)
+    (anki-editor-push-notes '(4))))
 
 (setq org-capture-templates
       '(("a" "Anki basic"
