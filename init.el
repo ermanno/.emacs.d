@@ -325,6 +325,15 @@
   :bind (:map org-mode-map
               ("C-c b" . org-insert-structure-template)))
 
+;; https://github.com/abo-abo/org-download
+(use-package org-download
+  :ensure t
+  :defer t
+  :init
+  ;; Add handlers for drag-and-drop when Org is loaded.
+  (with-eval-after-load 'org
+    (org-download-enable)))
+
 ;; org-babel
 (org-babel-do-load-languages
  'org-babel-load-languages
