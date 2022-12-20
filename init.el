@@ -355,56 +355,6 @@
   (not (string= lang "plantuml")))
 (setq org-confirm-babel-evaluate #'my-org-confirm-babel-evaluate)
 
-;; Org Roam
-(use-package org-roam
-  :ensure t
-  :init
-  (setq org-roam-v2-ack t)
-  :custom
-  (org-roam-directory "~/Documents/org-roam/roam-files")
-  :bind (("C-c n l" . org-roam-buffer-toggle)
-         ("C-c n f" . org-roam-node-find)
-         ("C-c n i" . org-roam-node-insert))
-  :config
-  (org-roam-setup))
-
-(use-package org-roam-ui
-  :after org-roam
-  :config
-  (setq org-roam-ui-sync-theme t
-        org-roam-ui-follow t
-        org-roam-ui-update-on-save t
-        org-roam-ui-open-on-start t))
-
-
-;; Anki Org mode integration
-;; - https://rgoswami.me/posts/anki-decks-orgmode/
-;; - https://yiufung.net/post/anki-org/
-(use-package anki-editor
-  :after org
-  :config
-  (setq anki-editor-create-decks 't
-        anki-editor-org-tags-an-anki-tags t)
-  (defun anki-editor-push-tree ()
-    "Push all notes under a tree."
-    (interactive)
-    (anki-editor-push-notes '(4))))
-
-(setq org-capture-templates
-      '(("a" "Anki basic"
-         entry
-         (file+headline "~/Documents/org-anki/anki.org" "Dispatch Shelf")
-         "* %?   %^g\n:PROPERTIES:\n:ANKI_NOTE_TYPE: Basic\n:ANKI_DECK: Mega\n:END:\n\n** Front\n\n\n** Back\n%x\n")))
-
-;; TODO Fix instertion of a newline between questions
-;; TODO Implement function where you push the "Dispatch Shelf" tree and refile the entries under the Exported tree
-
-(setq request-backend 'url-retrieve)
-
-;; Allow Emacs to access content from clipboard.
-(setq x-select-enable-clipboard t
-      x-select-enable-primary t)
-
 ;; bash
 (defun shell-indentation-settings ()
   (setq sh-basic-offset 2
