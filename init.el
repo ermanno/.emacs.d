@@ -29,7 +29,7 @@
 (when (and
        (eq system-type 'darwin)
        (not (string-match-p
-             (regexp-quote "Keyboard")
+             "[Kk]eyboard"
              (shell-command-to-string "ioreg -p IOUSB -w0"))))
   (setq mac-command-modifier 'meta
         mac-option-modifier 'control))
