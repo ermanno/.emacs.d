@@ -1,0 +1,2 @@
+* Emacs configuration
+My personal Emacs configuration.
