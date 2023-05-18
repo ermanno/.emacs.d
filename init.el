@@ -25,10 +25,14 @@
   :config (auto-compile-on-load-mode))
 (setq load-prefer-newer t)
 
-;; ;; Mac settings
-;; (when (eq system-type 'darwin)
-;;   (setq mac-command-modifier 'meta
-;;      mac-option-modifier 'control))
+;; Mac settings
+(when (and
+       (eq system-type 'darwin)
+       (not (string-match-p
+             (regexp-quote "Keyboard")
+             (shell-command-to-string "ioreg -p IOUSB -w0"))))
+  (setq mac-command-modifier 'meta
+        mac-option-modifier 'control))
 
 ;; UI
 (setq inhibit-startup-screen t
