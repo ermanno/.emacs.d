@@ -325,9 +325,20 @@
 (add-hook 'org-mode-hook 'my-org-mode-hook)
 
 (use-package org
+  :preface
+  (defun ermann/org-link-copy (&optional arg)
+    "Extract URL from org-mode link and add it to kill ring."
+    (interactive "P")
+    (let* ((link (org-element-lineage (org-element-context) '(link) t))
+           (type (org-element-property :type link))
+           (url (org-element-property :path link))
+           (url (concat type ":" url)))
+      (kill-new url)
+      (message (concat "Copied URL: " url))))
   :config (global-set-key (kbd "C-c c") 'org-capture)
   :bind (:map org-mode-map
-              ("C-c b" . org-insert-structure-template)))
+              ("C-c b" . org-insert-structure-template)
+              ("C-c l" . ermann/org-link-copy)))
 
 ;; https://github.com/abo-abo/org-download
 (use-package org-download
