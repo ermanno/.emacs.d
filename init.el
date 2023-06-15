@@ -407,9 +407,39 @@
   (when buffer-file-name
     (setq-local buffer-save-without-query t)))
 
+;;; go
+;; https://geeksocket.in/posts/emacs-lsp-go/
+;; https://legends2k.github.io/note/go_setup/
+(use-package go-mode
+  :mode "\\.go\\'"
+  :config
+  (defun ermann/go-mode-setup ()
+    "Basic Go mode setup."
+    (add-hook 'before-save-hook #'lsp-format-buffer t t)
+    (add-hook 'before-save-hook #'lsp-organize-imports t t))
+  (add-hook 'go-mode-hook #'ermann/go-mode-setup))
+
+;; (use-package lsp-mode
+;;   :ensure t
+;;   :commands (lsp lsp-mode lsp-deferred)
+;;   :hook ((rust-mode python-mode go-mode) . lsp-deferred)
+;;   :config
+;;   (setq lsp-prefer-flymake nil
+;;         lsp-enable-indentation nil
+;;         lsp-enable-on-type-formatting nil
+;;         lsp-rust-server 'rust-analyzer)
+;;   ;; for filling args placeholders upon function completion candidate selection
+;;   ;; lsp-enable-snippet and company-lsp-enable-snippet should be nil with
+;;   ;; yas-minor-mode is enabled: https://emacs.stackexchange.com/q/53104
+;;   (lsp-modeline-code-actions-mode)
+;;   (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
+;;   (add-to-list 'lsp-file-watch-ignored "\\.vscode\\'"))
+
+;;; lsp
 (use-package lsp-mode
   :ensure
-  :commands lsp
+  :commands (lsp lsp-mode lsp-deferred)
+  :hoop ((rust-mode python-mode go-mode) . lsp-deferred)
   :custom
   ;; what to use when checking on-save. "check" is default, I prefer clippy
   (lsp-rust-analyzer-cargo-watch-command "clippy")
@@ -424,6 +454,10 @@
   (lsp-rust-analyzer-display-parameter-hints nil)
   (lsp-rust-analyzer-display-reborrow-hints nil)
   :config
+  (setq lsp-prefer-flymake nil
+        lsp-enable-intentation nil
+        lsp-enable-on-type-formatting nil
+        lsp-rust-server 'rulst-analyzer)
   (add-hook 'lsp-mode-hook 'lsp-ui-mode))
 
 (use-package lsp-ui
