@@ -233,8 +233,7 @@
   (plantuml-jar-path "~/bin/plantuml-1.2022.0.jar")
   (plantuml-default-exec-mode 'jar)
   (org-plantuml-jar-path (expand-file-name "~/bin/plantuml-1.2022.0.jar"))
-  (org-startup-with-inline-images t)
-  )
+  (org-startup-with-inline-images t))
 
 (use-package flycheck-plantuml
   :commands (flycheck-plantuml-setup)
@@ -286,7 +285,6 @@
 ;; enable typescript - tslint checker
 (flycheck-add-mode 'typescript-tslint 'web-mode)
 
-
 ;; Org mode
 (require 'org-mouse)
 
@@ -331,12 +329,10 @@
 ;; org-babel
 (org-babel-do-load-languages
  'org-babel-load-languages
- '(
-   (emacs-lisp . t)
+ '((emacs-lisp . t)
    (python . t)
    (org . t)
-   (plantuml . t)
-   ))
+   (plantuml . t)))
 
 ;; Redisplay images after evaluating with C-c C-c
 (add-hook 'org-babel-after-execute-hook
