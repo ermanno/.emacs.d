@@ -4,8 +4,10 @@
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 
+(put 'narrow-to-region 'disabled nil)
+(put 'narrow-to-page 'disabled nil)
+
 (package-initialize)
-(setq use-package-always-ensure t)
 
 (setq custom-file "~/.emacs.d/custom-settings.el")
 (load custom-file t)
@@ -18,8 +20,8 @@
 ;; Install use-package if it is not already installed
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
-(setq use-package-verbose t)
-(setq use-package-always-ensure t)
+(setq use-package-verbose t
+      use-package-always-ensure t)
 (require 'use-package)
 (use-package auto-compile
   :config (auto-compile-on-load-mode))
@@ -44,7 +46,6 @@
 (show-paren-mode)
 
 (use-package zenburn-theme
-  :ensure t
   :config
   (load-theme 'zenburn t)
   (set-face-attribute 'default nil :height 150))
@@ -88,14 +89,12 @@
 
 ;; Undo tree
 (use-package undo-tree
-  :ensure t
   :config
   (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
   (global-undo-tree-mode 1))
 
 ;; Transpose frame
 (use-package transpose-frame
-  :ensure t
   :bind ("C-c t" . transpose-frame))
 
 ;; Multiple cursors
@@ -112,7 +111,6 @@
 
 ;; Ivy/Swiper/Counsel/Smex
 (use-package ivy
-  :ensure t
   :config
   (ivy-mode 1)
   (setq ivy-use-virtual-buffers t)
@@ -121,15 +119,12 @@
   (global-set-key (kbd "<f6>") 'ivy-resume))
 
 (use-package swiper
-  :ensure t
   :config
   (global-set-key (kbd "C-c o") 'swiper))
 
-(use-package smex
-  :ensure t)
+(use-package smex)
 
 (use-package counsel
-  :ensure t
   :config
   (global-set-key (kbd "M-x") 'counsel-M-x)
   (global-set-key (kbd "C-x C-f") 'counsel-find-file)
@@ -147,8 +142,7 @@
 
 ;; Magit
 (use-package magit
-  :ensure t
-  :defer t
+  :defer t ;; TODO: check whether I need it
   :bind (("C-x g" . magit-status))
   :config
   (progn
@@ -167,12 +161,10 @@
                         "git-gutter-fringe"
                       "git-gutter")))
   (eval `(use-package ,package-name
-           :ensure t
            :init (global-git-gutter-mode))))
 
 ;; Neotree
 (use-package neotree
-  :ensure t
   :bind ("<f5>" . neotree-toggle))
 
 ;; Expand region
@@ -180,13 +172,18 @@
   :commands er/expand-region
   :bind ("C-=" . er/expand-region))
 
+;; Bash
+(defun shell-indentation-settings ()
+  (setq sh-basic-offset 2
+        sh-indentation 2))
+(add-hook 'sh-mode-hook #'shell-indentation-settings)
+
 ;; YAML support
 (use-package yaml-mode
   :mode "\\.yaml\\'")
 
 ;; Markdown support
 (use-package markdown-mode
-  :ensure t
   :commands (markdown-mode gfm-mode)
   :mode (("README\\.md\\'" . gfm-mode)
          ("\\.md\\'" . markdown-mode)
@@ -207,7 +204,6 @@
 
 ;; Smartparens
 (use-package smartparens
-  :ensure t
   :config
   (setq sp-show-pair-from-inside nil)
   (require 'smartparens-config)
@@ -215,7 +211,6 @@
 
 ;; Scheme
 (use-package geiser-mit
-  :ensure t
   :init (progn
           (setq geiser-mit-binary "/usr/bin/scheme"
                 geiser-active-implementations '(mit))
@@ -228,20 +223,17 @@
 
 ;; yasnippet
 (use-package yasnippet
-  :ensure t
   :config
   (progn (setq yas-verbosity 1
                yas-wrap-around-region t)
          (yas-reload-all)
          (yas-global-mode)))
 
-(use-package yasnippet-snippets
-  :ensure t)
+(use-package yasnippet-snippets)
 
 ;; PlantUML mode
 ;; https://github.com/skuro/plantuml-mode
 (use-package plantuml-mode
-  :ensure t
   :mode "\\.plu\\'"
   :custom
   (plantuml-jar-path "~/bin/plantuml-1.2022.0.jar")
@@ -251,7 +243,6 @@
   )
 
 (use-package flycheck-plantuml
-  :ensure t
   :commands (flycheck-plantuml-setup)
   :init
   (with-eval-after-load 'flycheck
@@ -262,17 +253,12 @@
 
 ;;;;; Web mode
 (use-package web-mode
-  :ensure t
   :mode (("\\.php$" .  web-mode)
          ("\\.html$" .  web-mode)))
 
-;; Typescript
-;; Source: https://willschenk.com/articles/2021/setting_up_emacs_for_typescript_development/
-
-;;;;; Install Tide
-(use-package tide :ensure t)
-(use-package company :ensure t)
-(use-package flycheck :ensure t)
+(use-package tide)
+(use-package company)
+(use-package flycheck)
 
 (defun setup-tide-mode ()
   (interactive)
@@ -342,7 +328,6 @@
 
 ;; https://github.com/abo-abo/org-download
 (use-package org-download
-  :ensure t
   :defer t
   :init
   ;; Add handlers for drag-and-drop when Org is loaded.
@@ -369,105 +354,3 @@
 (defun my-org-confirm-babel-evaluate (lang body)
   (not (string= lang "plantuml")))
 (setq org-confirm-babel-evaluate #'my-org-confirm-babel-evaluate)
-
-;; bash
-(defun shell-indentation-settings ()
-  (setq sh-basic-offset 2
-        sh-indentation 2))
-(add-hook 'sh-mode-hook #'shell-indentation-settings)
-
-;; rust
-;; https://robert.kra.hn/posts/rust-emacs-setup/
-(use-package rustic
-  :ensure
-  :bind (:map rustic-mode-map
-              ("M-j" . lsp-ui-imenu)
-              ("M-?" . lsp-find-references)
-              ("C-c C-c l" . flycheck-list-errors)
-              ("C-c C-c a" . lsp-execute-code-action)
-              ("C-c C-c r" . lsp-rename)
-              ("C-c C-c q" . lsp-workspace-restart)
-              ("C-c C-c Q" . lsp-workspace-shutdown)
-              ("C-c C-c s" . lsp-rust-analyzer-status))
-  :config
-  ;; uncomment for less flashiness
-  ;; (setq lsp-eldoc-hook nil)
-  ;; (setq lsp-enable-symbol-highlighting nil)
-  ;; (setq lsp-signature-auto-activate nil)
-
-  ;; comment to disable rustfmt on save
-  (setq rustic-format-on-save t)
-  (add-hook 'rustic-mode-hook 'rk/rustic-mode-hook))
-
-(defun ermann/rustic-mode-hook ()
-  ;; so that run C-c C-c C-r works without having to confirm, but don't try to
-  ;; save rust buffers that are not file visiting. Once
-  ;; https://github.com/brotzeit/rustic/issues/253 has been resolved this should
-  ;; no longer be necessary.
-  (when buffer-file-name
-    (setq-local buffer-save-without-query t)))
-
-;;; go
-;; https://geeksocket.in/posts/emacs-lsp-go/
-;; https://legends2k.github.io/note/go_setup/
-(use-package go-mode
-  :mode "\\.go\\'"
-  :config
-  (defun ermann/go-mode-setup ()
-    "Basic Go mode setup."
-    (add-hook 'before-save-hook #'lsp-format-buffer t t)
-    (add-hook 'before-save-hook #'lsp-organize-imports t t))
-  (add-hook 'go-mode-hook #'ermann/go-mode-setup))
-
-;; (use-package lsp-mode
-;;   :ensure t
-;;   :commands (lsp lsp-mode lsp-deferred)
-;;   :hook ((rust-mode python-mode go-mode) . lsp-deferred)
-;;   :config
-;;   (setq lsp-prefer-flymake nil
-;;         lsp-enable-indentation nil
-;;         lsp-enable-on-type-formatting nil
-;;         lsp-rust-server 'rust-analyzer)
-;;   ;; for filling args placeholders upon function completion candidate selection
-;;   ;; lsp-enable-snippet and company-lsp-enable-snippet should be nil with
-;;   ;; yas-minor-mode is enabled: https://emacs.stackexchange.com/q/53104
-;;   (lsp-modeline-code-actions-mode)
-;;   (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
-;;   (add-to-list 'lsp-file-watch-ignored "\\.vscode\\'"))
-
-;;; lsp
-(use-package lsp-mode
-  :ensure
-  :commands (lsp lsp-mode lsp-deferred)
-  :hoop ((rust-mode python-mode go-mode) . lsp-deferred)
-  :custom
-  ;; what to use when checking on-save. "check" is default, I prefer clippy
-  (lsp-rust-analyzer-cargo-watch-command "clippy")
-  (lsp-eldoc-render-all t)
-  (lsp-idle-delay 0.6)
-  ;; enable / disable the hints as you prefer:
-  (lsp-rust-analyzer-server-display-inlay-hints t)
-  (lsp-rust-analyzer-display-lifetime-elision-hints-enable "skip_trivial")
-  (lsp-rust-analyzer-display-chaining-hints t)
-  (lsp-rust-analyzer-display-lifetime-elision-hints-use-parameter-names nil)
-  (lsp-rust-analyzer-display-closure-return-type-hints t)
-  (lsp-rust-analyzer-display-parameter-hints nil)
-  (lsp-rust-analyzer-display-reborrow-hints nil)
-  :config
-  (setq lsp-prefer-flymake nil
-        lsp-enable-intentation nil
-        lsp-enable-on-type-formatting nil
-        lsp-rust-server 'rulst-analyzer)
-  (add-hook 'lsp-mode-hook 'lsp-ui-mode))
-
-(use-package lsp-ui
-  :ensure
-  :commands lsp-ui-mode
-  :custom
-  (lsp-ui-peek-always-show t)
-  (lsp-ui-sideline-show-hover t)
-  (lsp-ui-doc-enable nil))
-
-
-(put 'narrow-to-region 'disabled nil)
-(put 'narrow-to-page 'disabled nil)
