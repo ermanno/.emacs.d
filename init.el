@@ -256,6 +256,9 @@
   :mode (("\\.php$" .  web-mode)
          ("\\.html$" .  web-mode)))
 
+;; TODO company and flycheck are generic packages whose configuration
+;; should live somewhere else than tide's
+
 (use-package tide)
 (use-package company)
 (use-package flycheck)
@@ -267,9 +270,6 @@
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
   (eldoc-mode +1)
   (tide-hl-identifier-mode +1)
-  ;; company is an optional dependency. You have to
-  ;; install it separately via package-install
-  ;; `M-x package-install [ret] company`
   (company-mode +1))
 
 ;; aligns annotation to the right hand side
