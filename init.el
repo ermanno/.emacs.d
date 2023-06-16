@@ -109,37 +109,35 @@
 (use-package ivy
   :config
   (ivy-mode 1)
-  (setq ivy-use-virtual-buffers t)
-  (setq enable-recursive-minibuffers t)
-  (global-set-key (kbd "C-c C-r") 'ivy-resume)
-  (global-set-key (kbd "<f6>") 'ivy-resume))
+  (setq ivy-use-virtual-buffers t
+        enable-recursive-minibuffers t)
+  :bind (("C-c C-r" . ivy-resume)
+         ("<f6>" . ivy-resume)))
 
 (use-package swiper
-  :config
-  (global-set-key (kbd "C-c o") 'swiper))
+  :bind ("C-c o" . swiper))
 
 (use-package smex)
 
 (use-package counsel
+  :bind (("M-x" . counsel-M-x)
+         ("C-x C-f" . counsel-find-file)
+         ("C-h f" . counsel-describe-function)
+         ("C-h v" . counsel-describe-variable)
+         ("C-h l" . counsel-find-library)
+         ("C-c g" . counsel-git)
+         ("C-c j" . counsel-git-grep)
+         ("C-c a" . counsel-ag)
+         ("C-x l" . counsel-locate)
+         ("C-c k" . counsel-compile)
+         ("C-c r" . counsel-recentf)
+         ("C-c h" . counsel-imenu))
   :config
-  (global-set-key (kbd "M-x") 'counsel-M-x)
-  (global-set-key (kbd "C-x C-f") 'counsel-find-file)
-  (global-set-key (kbd "C-h f") 'counsel-describe-function)
-  (global-set-key (kbd "C-h v") 'counsel-describe-variable)
-  (global-set-key (kbd "C-h l") 'counsel-find-library)
-  (global-set-key (kbd "C-c g") 'counsel-git)
-  (global-set-key (kbd "C-c j") 'counsel-git-grep)
-  (global-set-key (kbd "C-c a") 'counsel-ag)
-  (global-set-key (kbd "C-x l") 'counsel-locate)
-  (global-set-key (kbd "C-c k") 'counsel-compile)
-  (global-set-key (kbd "C-c r") 'counsel-recentf)
-  (global-set-key (kbd "C-c h") 'counsel-imenu)
   (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history))
 
 ;; Magit
 (use-package magit
-  :defer t ;; TODO: check whether I need it
-  :bind (("C-x g" . magit-status))
+  :bind ("C-x g" . magit-status)
   :config
   (progn
     (defun ermann/magit-log-edit-mode-hook ()
