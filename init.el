@@ -167,6 +167,9 @@
   :bind ("C-=" . er/expand-region))
 
 ;; Bash
+(use-package exec-path-from-shell
+  :config (exec-path-from-shell-initialize))
+
 (defun shell-indentation-settings ()
   (setq sh-basic-offset 2
         sh-indentation 2))
