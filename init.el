@@ -246,8 +246,8 @@
 
 ;;;;; Web mode
 (use-package web-mode
-  :mode (("\\.php$" .  web-mode)
-         ("\\.html$" .  web-mode)))
+  :mode (("\\.php$" . web-mode)
+         ("\\.html$" . web-mode)))
 
 (use-package company)
 (use-package flycheck)
