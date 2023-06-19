@@ -211,6 +211,7 @@
 
 ;; Smartparens
 (use-package smartparens
+  :hook (prog-mode text-mode markdown-mode)
   :config
   (setq sp-show-pair-from-inside nil)
   (require 'smartparens-config)
@@ -263,12 +264,11 @@
          ("\\.html$" . web-mode)))
 
 (use-package company
+  :hook (prog-mode text-mode markdown-mode)
   :bind (:map company-active-map
               ("C-n" . company-select-next)
               ("C-p" . company-select-previous))
-  :config
-  (setq company-idle-delay 0.3)
-  (global-company-mode t))
+  :config (setq company-idle-delay 0.3))
 
 (use-package flycheck)
 
