@@ -212,8 +212,9 @@
 ;; Smartparens
 (use-package smartparens
   :hook (prog-mode text-mode markdown-mode)
-  :init (require 'smartparens-config)
-  :config (setq sp-show-pair-from-inside nil)
+  :config
+  (require 'smartparens-config)
+  (setq sp-show-pair-from-inside nil)
   :diminish smartparens-mode)
 
 ;; Scheme
