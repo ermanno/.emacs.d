@@ -264,11 +264,12 @@
          ("\\.html$" . web-mode)))
 
 (use-package company
-  :hook (prog-mode text-mode markdown-mode)
   :bind (:map company-active-map
               ("C-n" . company-select-next)
               ("C-p" . company-select-previous))
-  :config (setq company-idle-delay 0.3))
+  :config
+  (setq company-idle-delay 0.3)
+  (global-company-mode t))
 
 (use-package flycheck)
 
