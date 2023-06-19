@@ -201,10 +201,8 @@
 
 ;; Perspectives -- https://github.com/nex3/perspective-el
 (use-package perspective
-  :custom
-  (persp-mode-prefix-key (kbd "C-c s"))
-  :init
-  (persp-mode))
+  :custom (persp-mode-prefix-key (kbd "C-c s"))
+  :init (persp-mode))
 
 ;; Show parens, not Lisp specific, but most useful for lisps
 (use-package rainbow-delimiters
