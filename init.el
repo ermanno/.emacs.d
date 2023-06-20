@@ -213,8 +213,7 @@
 (use-package smartparens
   :config
   (setq sp-show-pair-from-inside nil)
-  (require 'smartparens-config)
-  :diminish smartparens-mode)
+  (require 'smartparens-config))
 
 ;; Scheme
 (use-package geiser-mit
