@@ -290,12 +290,12 @@
       org-edit-src-content-indentation 0
       org-agenda-files '("~/Documents/org"))
 
-(defun my-org-mode-hook ()
+(defun ermann/org-mode-hook ()
   "My hook for org mode, setting up spell checking, word wrapping and other niceties."
   (ispell-change-dictionary "english")
   (flyspell-mode)
   (visual-line-mode))
-(add-hook 'org-mode-hook 'my-org-mode-hook)
+(add-hook 'org-mode-hook 'ermann/org-mode-hook)
 
 (use-package org
   :preface
@@ -336,6 +336,6 @@
               (org-redisplay-inline-images))))
 
 ;; Don't ask for confirmation when evaluating PlantUML code
-(defun my-org-confirm-babel-evaluate (lang body)
+(defun ermann/org-confirm-babel-evaluate (lang body)
   (not (string= lang "plantuml")))
-(setq org-confirm-babel-evaluate #'my-org-confirm-babel-evaluate)
+(setq org-confirm-babel-evaluate #'ermann/org-confirm-babel-evaluate)
