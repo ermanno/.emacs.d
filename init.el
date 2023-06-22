@@ -202,7 +202,7 @@
 ;; Perspective -- https://systemcrafters.net/effective-emacs-workflow/declutter-your-buffers-perspective-el/
 (use-package perspective
   :custom (persp-mode-prefix-key (kbd "C-c s"))
-  :bind (("C-x k" . persp-kill-buffer*)
+  :bind ("C-x k" . persp-kill-buffer*)
   :init (persp-mode))
 
 ;; Show parens, not Lisp specific, but most useful for lisps
