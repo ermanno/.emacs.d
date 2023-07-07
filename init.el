@@ -12,6 +12,11 @@
 (setq custom-file "~/.emacs.d/custom-settings.el")
 (load custom-file t)
 
+;; Add config directory to load path
+(setq config-dir
+      (expand-file-name "config" user-emacs-directory))
+(add-to-list 'load-path config-dir)
+
 ;; GNU ELPA is already part of package-archives, add melpa
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 (unless package-archive-contents
@@ -280,62 +285,4 @@
          (typescript-mode . tide-hl-identifier-mode)
          (before-save . tide-format-before-save)))
 
-;; Org mode
-(require 'org-mouse)
-
-(setq org-use-speed-commands t
-      org-src-fontify-natively t
-      org-adapt-indentation nil
-      org-hide-emphasis-markers t
-      org-edit-src-content-indentation 0
-      org-agenda-files '("~/Documents/org"))
-
-(defun ermann/org-mode-hook ()
-  "My hook for org mode, setting up spell checking, word wrapping and other niceties."
-  (ispell-change-dictionary "english")
-  (flyspell-mode)
-  (visual-line-mode))
-(add-hook 'org-mode-hook 'ermann/org-mode-hook)
-
-(use-package org
-  :preface
-  (defun ermann/org-link-copy (&optional arg)
-    "Extract URL from org-mode link and add it to kill ring."
-    (interactive "P")
-    (let* ((link (org-element-lineage (org-element-context) '(link) t))
-           (type (org-element-property :type link))
-           (url (org-element-property :path link))
-           (url (concat type ":" url)))
-      (kill-new url)
-      (message (concat "Copied URL: " url))))
-  :config (global-set-key (kbd "C-c c") 'org-capture)
-  :bind (:map org-mode-map
-              ("C-c b" . org-insert-structure-template)
-              ("C-c l" . ermann/org-link-copy)))
-
-;; https://github.com/abo-abo/org-download
-(use-package org-download
-  :defer t
-  :init
-  ;; Add handlers for drag-and-drop when Org is loaded.
-  (with-eval-after-load 'org
-    (org-download-enable)))
-
-;; org-babel
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((emacs-lisp . t)
-   (python . t)
-   (org . t)
-   (plantuml . t)))
-
-;; Redisplay images after evaluating with C-c C-c
-(add-hook 'org-babel-after-execute-hook
-          (lambda ()
-            (when org-inline-image-overlays
-              (org-redisplay-inline-images))))
-
-;; Don't ask for confirmation when evaluating PlantUML code
-(defun ermann/org-confirm-babel-evaluate (lang body)
-  (not (string= lang "plantuml")))
-(setq org-confirm-babel-evaluate #'ermann/org-confirm-babel-evaluate)
+(require 'org-config)
