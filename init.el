@@ -243,22 +243,6 @@
 
 (use-package yasnippet-snippets)
 
-;; PlantUML mode
-;; https://github.com/skuro/plantuml-mode
-(use-package plantuml-mode
-  :mode "\\.plu\\'"
-  :custom
-  (plantuml-jar-path "~/bin/plantuml-1.2022.0.jar")
-  (plantuml-default-exec-mode 'jar)
-  (org-plantuml-jar-path (expand-file-name "~/bin/plantuml-1.2022.0.jar"))
-  (org-startup-with-inline-images t))
-
-(use-package flycheck-plantuml
-  :commands (flycheck-plantuml-setup)
-  :init
-  (with-eval-after-load 'flycheck
-    (flycheck-plantuml-setup)))
-
 ;; JavaScript
 (setq js-indent-level 2)
 
@@ -285,4 +269,5 @@
          (typescript-mode . tide-hl-identifier-mode)
          (before-save . tide-format-before-save)))
 
+(require 'plantuml-config)
 (require 'org-config)
