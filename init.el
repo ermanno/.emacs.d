@@ -32,20 +32,6 @@
   :config (auto-compile-on-load-mode))
 (setq load-prefer-newer t)
 
-;; Mac settings
-
-(defun ermann/attached-to-external-monitor-p ()
-  "Check whether the laptop is attached to an external monitor"
-  (string-match-p
-   "[Kk]eyboard"
-   (shell-command-to-string "ioreg -p IOUSB -w0")))
-
-(when (and
-       (eq system-type 'darwin)
-       (not (ermann/attached-to-external-monitor-p)))
-  (setq mac-command-modifier 'meta
-        mac-option-modifier 'control))
-
 ;; UI
 (setq inhibit-startup-screen t
       frame-title-format "%b"
@@ -231,6 +217,7 @@
          (typescript-mode . tide-hl-identifier-mode)
          (before-save . tide-format-before-save)))
 
+(require 'mac-config)
 (require 'git-config)
 (require 'plantuml-config)
 (require 'org-config)
