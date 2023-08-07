@@ -77,4 +77,6 @@
   :commands er/expand-region
   :bind ("C-=" . er/expand-region))
 
+(use-package flycheck)
+
 (provide 'ux-config)

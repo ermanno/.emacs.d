@@ -103,8 +103,6 @@
   (global-company-mode t)
   :diminish company-mode)
 
-(use-package flycheck)
-
 ;; TypeScript (https://github.com/ananthakumaran/tide)
 (use-package tide
   :after (typescript-mode company flycheck)
