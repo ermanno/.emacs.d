@@ -72,10 +72,6 @@
           (add-hook 'scheme-mode-hook 'geiser-mode))
   :commands geiser-mode)
 
-;; Unfill
-(use-package unfill
-  :bind ([remap fill-paragraph] . unfill-toggle))
-
 ;; yasnippet
 (use-package yasnippet
   :config

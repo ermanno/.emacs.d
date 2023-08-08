@@ -77,6 +77,10 @@
   :commands er/expand-region
   :bind ("C-=" . er/expand-region))
 
+;; Unfill
+(use-package unfill
+  :bind ([remap fill-paragraph] . unfill-toggle))
+
 (use-package flycheck)
 
 (provide 'ux-config)
