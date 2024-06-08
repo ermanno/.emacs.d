@@ -58,4 +58,16 @@
   (not (string= lang "plantuml")))
 (setq org-confirm-babel-evaluate #'ermann/org-confirm-babel-evaluate)
 
+(defun ermann/org-count-chars-in-subtree ()
+  "Counts the number of characters in an Org mode subtree"
+  (interactive)
+  (save-excursion
+    (org-mark-subtree)
+    (forward-line 1)
+    (exchange-point-and-mark)
+    (forward-line -1)
+    (let ((nchars (- (point) (mark))))
+      (deactivate-mark)
+      (message "%d" nchars))))
+
 (provide 'org-config)
