@@ -83,4 +83,8 @@
 
 (use-package flycheck)
 
+;; autosave
+(auto-save-visited-mode 1)
+(setq auto-save-visited-interval 0)
+
 (provide 'ux-config)
