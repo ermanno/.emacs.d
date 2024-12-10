@@ -111,3 +111,4 @@
 (require 'plantuml-config)
 (require 'org-config)
 (require 'shell-config)
+(require 'lsp-mode)
