@@ -26,9 +26,4 @@
   (sml/replacer-regexp-list nil)
   :config (sml/setup))
 
-(use-package dashboard
-  :ensure t
-  :config
-  (dashboard-setup-startup-hook))
-
 (provide 'ui-config)

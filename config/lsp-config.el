@@ -1,5 +1,4 @@
 ;; https://github.com/emacs-lsp/lsp-mode?tab=readme-ov-file
-
 (use-package lsp-mode
   :init
   (setq lsp-keymap-prefix "C-c l")
@@ -27,3 +26,5 @@
 (use-package which-key
   :config
   (which-key-mode))
+
+(provide 'lsp-config)
