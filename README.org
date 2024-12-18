@@ -1,2 +1,8 @@
 * Emacs configuration
 My personal Emacs configuration.
+
+*** Next steps
+
+**** TODO treemacs vs neotree (delete one of the two)
+
+**** TODO create ~/Documents/org if not present

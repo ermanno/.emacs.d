@@ -16,3 +16,4 @@ session*
 eln-cache/
 request/
 projects
+.cache/
