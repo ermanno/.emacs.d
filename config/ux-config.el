@@ -9,28 +9,23 @@
 ;; Use only spaces
 (setq-default indent-tabs-mode nil)
 
-;; Allow Emacs to access content from clipboard.
 (setq x-select-enable-clipboard t
       x-select-enable-primary t)
 
-;; Projectile
 (use-package projectile
   :init
   (setq projectile-completion-system 'ivy)
   :bind-keymap
   ("C-c p" . projectile-command-map))
 
-;; Undo tree
 (use-package undo-tree
   :config
   (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
   (global-undo-tree-mode 1))
 
-;; Transpose frame
 (use-package transpose-frame
   :bind ("C-c t" . transpose-frame))
 
-;; Multiple cursors
 (use-package multiple-cursors
   :bind (("C->" . mc/mark-next-like-this)
          ("C-<" . mc/mark-previous-like-this)
@@ -38,7 +33,6 @@
          ("C-c ," . mc/mark-previous-like-this)
          ("C-c C-l" . mc/mark-all-like-this)))
 
-;; Ivy/Swiper/Counsel/Smex
 (use-package ivy
   :config
   (ivy-mode 1)
@@ -68,18 +62,15 @@
   :config
   (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history))
 
-;; Expand region
 (use-package expand-region
   :commands er/expand-region
   :bind ("C-=" . er/expand-region))
 
-;; Unfill
 (use-package unfill
   :bind ([remap fill-paragraph] . unfill-toggle))
 
 (use-package flycheck)
 
-;; autosave
 (auto-save-visited-mode 1)
 (setq auto-save-visited-interval 0)
 
