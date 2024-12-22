@@ -68,10 +68,6 @@
   :config
   (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history))
 
-;; Neotree
-(use-package neotree
-  :bind ("<f5>" . neotree-toggle))
-
 ;; Expand region
 (use-package expand-region
   :commands er/expand-region
