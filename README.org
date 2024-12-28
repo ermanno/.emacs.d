@@ -1,6 +1,3 @@
 * Emacs configuration
 My personal Emacs configuration.
 
-*** Next steps
-
-**** TODO create ~/Documents/org if not present
