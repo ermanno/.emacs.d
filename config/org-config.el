@@ -1,12 +1,23 @@
 ;; Org mode
 (require 'org-mouse)
 
-(setq org-use-speed-commands t
-      org-src-fontify-natively t
-      org-adapt-indentation nil
-      org-hide-emphasis-markers t
-      org-edit-src-content-indentation 0
-      org-agenda-files '("~/Documents/org"))
+(defcustom ermann/org-files-directory (expand-file-name "~/Documents/org")
+  "Directory for storing org files."
+  :type 'directory
+  :group 'org)
+
+;; Ensure org directory exists
+(unless (file-exists-p ermann/org-files-directory)
+  (make-directory ermann/org-files-directory t))
+
+;; Configure org-mode settings
+(with-eval-after-load 'org
+  (setq org-use-speed-commands t
+        org-src-fontify-natively t
+        org-adapt-indentation nil
+        org-hide-emphasis-markers t
+        org-edit-src-content-indentation 0
+        org-agenda-files (list ermann/org-files-directory)))
 
 (defun ermann/org-mode-hook ()
   "My hook for org mode, setting up spell checking, word wrapping and other niceties."
