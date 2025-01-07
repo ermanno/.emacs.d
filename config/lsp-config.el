@@ -11,13 +11,12 @@
 (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
 
 ;; python
-(use-package lsp-python-ms
+(use-package lsp-pyright
   :ensure t
-  :init (setq lsp-python-ms-auto-install-server t)
+  :custom (lsp-pyright-langserver-command "pyright")
   :hook (python-mode . (lambda ()
-                         (require 'lsp-python-ms)
+                         (require 'lsp-pyright)
                          (lsp))))
-
 
 ;; optionally if you want to use debugger
 (use-package dap-mode)
