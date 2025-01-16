@@ -3,6 +3,9 @@
       visible-bell 1)
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
+(if (display-graphic-p)
+    (menu-bar-mode 1)  ; Show menu bar in GUI
+  (menu-bar-mode -1))  ; Hide menu bar in terminal
 (column-number-mode)
 (show-paren-mode)
 
