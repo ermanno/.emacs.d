@@ -60,8 +60,8 @@
 
 ;; Smartparens
 (use-package smartparens
+  :hook (prog-mode)
   :config
-  (setq sp-show-pair-from-inside nil)
   (require 'smartparens-config))
 
 ;; Scheme
