@@ -108,7 +108,8 @@
 
 (require 'mac-config)
 (require 'git-config)
+(require 'lsp-config)
 (require 'plantuml-config)
 (require 'org-config)
 (require 'shell-config)
-(require 'lsp-config)
+(require 'go-config)

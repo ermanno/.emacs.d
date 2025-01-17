@@ -3,7 +3,7 @@
   :init
   (setq lsp-keymap-prefix "C-c l"
         lsp-warn-no-matched-clients nil)
-  :hook ((prog-mode . lsp)
+  :hook ((go-mode . lsp)
          (lsp-mode . lsp-enable-which-key-integration))
   :commands lsp)
 

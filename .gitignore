@@ -17,3 +17,4 @@ eln-cache/
 request/
 projects
 .cache/
+tree-sitter/
