@@ -1,9 +1,9 @@
 ;; https://github.com/emacs-lsp/lsp-mode?tab=readme-ov-file
 (use-package lsp-mode
   :init
-  (setq lsp-keymap-prefix "C-c l")
-  :hook ((python-mode . lsp)
-         (go-ts-mode . lsp)
+  (setq lsp-keymap-prefix "C-c l"
+        lsp-warn-no-matched-clients nil)
+  :hook ((prog-mode . lsp)
          (lsp-mode . lsp-enable-which-key-integration))
   :commands lsp)
 
