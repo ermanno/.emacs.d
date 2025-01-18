@@ -74,4 +74,12 @@
 (auto-save-visited-mode 1)
 (setq auto-save-visited-interval 0)
 
+(add-hook 'prog-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-c C-c")
+                           (lambda ()
+                             (interactive)
+                             (let ((current-prefix-arg '(4)))
+                               (call-interactively 'compile))))))
+
 (provide 'ux-config)
