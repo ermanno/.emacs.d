@@ -80,6 +80,8 @@
                            (lambda ()
                              (interactive)
                              (let ((current-prefix-arg '(4)))
-                               (call-interactively 'compile))))))
+                               (call-interactively 'compile)
+                               (switch-to-buffer-other-window "*compilation*")
+                               (goto-char (point-max)))))))
 
 (provide 'ux-config)
