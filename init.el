@@ -108,6 +108,7 @@
 
 (require 'mac-config)
 (require 'git-config)
+(require 'tree-sitter-config)
 (require 'lsp-config)
 (require 'plantuml-config)
 (require 'org-config)

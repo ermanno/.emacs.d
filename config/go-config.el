@@ -1,13 +1,3 @@
-;; Tree-sitter configuration for Go
-(setq treesit-language-source-alist
-      '((go "https://github.com/tree-sitter/tree-sitter-go")
-        (gomod "https://github.com/camdencheek/tree-sitter-go-mod")))
-
-;; Install the grammar if needed
-(dolist (lang '(go gomod))
-  (unless (treesit-language-available-p lang)
-    (treesit-install-language-grammar lang)))
-
 ;; Use tree-sitter modes for Go
 (add-to-list 'major-mode-remap-alist
              '(go-mode . go-ts-mode))
