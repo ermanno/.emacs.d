@@ -69,7 +69,12 @@
 (use-package unfill
   :bind ([remap fill-paragraph] . unfill-toggle))
 
-(use-package flycheck)
+(use-package flycheck
+  :init (global-flycheck-mode)
+  :bind (:map flycheck-mode-map
+              ("M-n" . flycheck-next-error)
+              ("M-p" . flycheck-previous-error)))
+
 
 (auto-save-visited-mode 1)
 (setq auto-save-visited-interval 0)
