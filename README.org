@@ -1,5 +1,8 @@
 * Emacs configuration
 My personal Emacs configuration.
 
+** Anki
+Current setup requires to install pandoc: https://pandoc.org/installing.html
+
 ** TODO LSP configuration
 Useful configuration to look at: https://www.ovistoica.com/blog/2024-7-05-modern-emacs-typescript-web-tsx-config

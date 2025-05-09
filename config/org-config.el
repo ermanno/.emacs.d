@@ -19,6 +19,11 @@
         org-edit-src-content-indentation 0
         org-agenda-files (list ermann/org-files-directory)))
 
+;; https://github.com/eyeinsky/org-anki
+(use-package org-anki
+  :after org
+  :config (setq org-anki-default-deck "Default"))
+
 (defun ermann/org-mode-hook ()
   "My hook for org mode, setting up spell checking, word wrapping and other niceties."
   (ispell-change-dictionary "english")
