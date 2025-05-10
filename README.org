@@ -1,6 +1,14 @@
 * Emacs configuration
 My personal Emacs configuration.
 
+** Org mode LaTeX configuration
+
+Install ~latex~ and ~dvisvgm~
+
+#+begin_src bash
+sudo apt install texlive-latex-base dvisvgm
+#+end_src
+
 ** Anki
 Current setup requires to install pandoc: https://pandoc.org/installing.html
 
