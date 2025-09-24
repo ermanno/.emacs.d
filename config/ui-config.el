@@ -1,6 +1,7 @@
 (setq inhibit-startup-screen t
       frame-title-format "%b"
-      visible-bell 1)
+      visible-bell 1
+      inhibit-x-resources 't)
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 (if (display-graphic-p)
