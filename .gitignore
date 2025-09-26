@@ -18,3 +18,4 @@ request/
 projects
 .cache/
 tree-sitter/
+tramp
