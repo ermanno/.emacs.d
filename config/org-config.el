@@ -59,7 +59,8 @@
 ;; org-babel
 (org-babel-do-load-languages
  'org-babel-load-languages
- '((emacs-lisp . t)
+ '((shell . t)
+   (emacs-lisp . t)
    (python . t)
    (org . t)
    (plantuml . t)))
