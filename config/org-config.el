@@ -18,7 +18,8 @@
         org-hide-emphasis-markers t
         org-edit-src-content-indentation 0
         org-preview-latex-default-process 'dvisvgm
-        org-agenda-files (list ermann/org-files-directory)))
+        org-agenda-files (list ermann/org-files-directory)
+        org-confirm-babel-evaluate nil))
 
 ;; https://github.com/eyeinsky/org-anki
 (use-package org-anki
