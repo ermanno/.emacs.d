@@ -114,3 +114,4 @@
 (require 'org-config)
 (require 'shell-config)
 (require 'go-config)
+(require 'tramp-config)
