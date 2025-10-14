@@ -13,4 +13,7 @@
   (toggle-read-only))
 (add-hook 'compilation-filter-hook 'ermann/colorize-compilation-buffer)
 
+(use-package vterm
+  :ensure t)
+
 (provide 'shell-config)

@@ -4,18 +4,14 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(anki-editor auto-compile company counsel dap-mode dashboard
-                 exec-path-from-shell expand-region flycheck
-                 flycheck-plantuml geiser geiser-mit git-gutter
-                 git-gutter-fringe go-mode hl-todo ivy lsp-ivy
-                 lsp-mode lsp-pyright lsp-python-ms lsp-treemacs
-                 lsp-ui magit markdown-mode multiple-cursors neotree
-                 org-anki org-download org-roam org-roam-ui ox-hugo
-                 perspective plantuml-mode projectile
-                 rainbow-delimiters rustic smart-mode-line smartparens
-                 smex swiper tide transpose-frame treesit treesit-auto
-                 undo-tree unfill use-package vs-light-theme web-mode
-                 which-key yaml-mode yasnippet yasnippet-snippets))
+   '(auto-compile company counsel dap-mode exec-path-from-shell
+                  expand-region flycheck-plantuml geiser-mit
+                  git-gutter-fringe hl-todo lsp-ivy lsp-pyright lsp-ui
+                  magit multiple-cursors org-anki org-download
+                  perspective projectile rainbow-delimiters
+                  smart-mode-line smartparens smex tide
+                  transpose-frame treesit-auto undo-tree unfill vterm
+                  web-mode yaml-mode yasnippet-snippets zenburn-theme))
  '(python-shell-interpreter "python3")
  '(warning-suppress-types '((comp))))
 (custom-set-faces
