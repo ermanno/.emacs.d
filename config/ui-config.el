@@ -13,7 +13,7 @@
 (use-package zenburn-theme
   :config
   (load-theme 'zenburn t)
-  (set-face-attribute 'default nil :height 150))
+  (set-face-attribute 'default nil :height 120))
 
 (use-package hl-todo
   :config (global-hl-todo-mode))
