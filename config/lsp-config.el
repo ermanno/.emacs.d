@@ -13,7 +13,6 @@
 
 ;; python
 (use-package lsp-pyright
-  :ensure t
   :custom (lsp-pyright-langserver-command "pyright")
   :hook (python-mode . (lambda ()
                          (require 'lsp-pyright)
@@ -21,7 +20,6 @@
 
 ;; rust
 (use-package flycheck-rust
-  :ensure t
   :config
   (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
 

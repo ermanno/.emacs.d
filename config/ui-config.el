@@ -11,7 +11,6 @@
 (show-paren-mode)
 
 (use-package modus-themes
-  :ensure t
   :config
   (load-theme 'modus-operandi :no-confirm)
 

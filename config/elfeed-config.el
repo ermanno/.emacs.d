@@ -1,5 +1,4 @@
 (use-package elfeed
-  :ensure t
   :custom
   (elfeed-feeds
    '(("https://www.youtube.com/feeds/videos.xml?channel_id=UCqZe2cxQNCvgkQxUuqsIaig" youtube)
