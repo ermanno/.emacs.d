@@ -26,7 +26,8 @@
   :config (global-hl-todo-mode))
 
 (use-package rainbow-delimiters
-  :hook (prog-mode . rainbow-delimiters-mode))
+  :hook (prog-mode . rainbow-delimiters-mode)
+  :diminish rainbow-delimiters-mode)
 
 (use-package smart-mode-line
   :custom

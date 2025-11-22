@@ -53,11 +53,6 @@
   :bind ("C-x k" . persp-kill-buffer*)
   :init (persp-mode))
 
-;; Show parens, not Lisp specific, but most useful for lisps
-(use-package rainbow-delimiters
-  :hook (prog-mode . rainbow-delimiters-mode)
-  :diminish rainbow-delimiters-mode)
-
 ;; Smartparens
 (use-package smartparens
   :hook (prog-mode)
