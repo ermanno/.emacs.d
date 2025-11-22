@@ -4,7 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(auto-compile company counsel dap-mode exec-path-from-shell
+   '(auto-compile company counsel dap-mode elfeed exec-path-from-shell
                   expand-region flycheck-plantuml flycheck-rust
                   geiser-mit git-gutter-fringe hl-todo lsp-ivy
                   lsp-pyright lsp-ui magit multiple-cursors org-anki

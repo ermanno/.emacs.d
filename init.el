@@ -115,3 +115,4 @@
 (require 'shell-config)
 (require 'go-config)
 (require 'tramp-config)
+(require 'elfeed-config)
