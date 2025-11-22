@@ -9,8 +9,17 @@ Install ~latex~ and ~dvisvgm~
 sudo apt install texlive-latex-base dvisvgm
 #+end_src
 
+or
+
 ** Anki
 Current setup requires to install pandoc: https://pandoc.org/installing.html
+
+** Rust
+Install rust-analyzer with:
+
+#+begin_src bash
+rustup component add rust-analyzer
+#+end_src
 
 ** TODO LSP configuration
 Useful configuration to look at: https://www.ovistoica.com/blog/2024-7-05-modern-emacs-typescript-web-tsx-config
