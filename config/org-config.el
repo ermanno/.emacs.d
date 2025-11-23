@@ -101,15 +101,6 @@
         org-pomodoro-short-break-format "☕ %s"
         org-pomodoro-long-break-format "🌴 %s"
         org-pomodoro-time-format "%m:%s"
-        org-pomodoro-finished-hook
-        (list (lambda ()
-                (alert "Pomodoro completed!" :title "Org Pomodoro")))
-        org-pomodoro-short-break-finished-hook
-        (list (lambda ()
-                (alert "Short break over! Back to work." :title "Org Pomodoro")))
-        org-pomodoro-long-break-finished-hook
-        (list (lambda ()
-                (alert "Long break over! Let's focus again." :title "Org Pomodoro")))
         )
   )
 
