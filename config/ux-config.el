@@ -79,4 +79,9 @@
 (auto-save-visited-mode 1)
 (setq auto-save-visited-interval 0)
 
+(use-package alert
+  :commands alert
+  :config
+  (setq alert-default-style 'notifications))
+
 (provide 'ux-config)

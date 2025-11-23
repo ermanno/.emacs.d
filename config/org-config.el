@@ -90,4 +90,28 @@
       (deactivate-mark)
       (message "%d" nchars))))
 
+
+(use-package org-pomodoro
+  :after (org alert)
+  :config
+  (setq org-pomodoro-length 25
+        org-pomodoro-short-break-length 5
+        org-pomodoro-long-break-length 15
+        org-pomodoro-format "⏱ %s"
+        org-pomodoro-short-break-format "☕ %s"
+        org-pomodoro-long-break-format "🌴 %s"
+        org-pomodoro-time-format "%m:%s"
+        org-pomodoro-finished-hook
+        (list (lambda ()
+                (alert "Pomodoro completed!" :title "Org Pomodoro")))
+        org-pomodoro-short-break-finished-hook
+        (list (lambda ()
+                (alert "Short break over! Back to work." :title "Org Pomodoro")))
+        org-pomodoro-long-break-finished-hook
+        (list (lambda ()
+                (alert "Long break over! Let's focus again." :title "Org Pomodoro")))
+        )
+  (org-pomodoro-mode-line)
+  )
+
 (provide 'org-config)
