@@ -111,7 +111,6 @@
         (list (lambda ()
                 (alert "Long break over! Let's focus again." :title "Org Pomodoro")))
         )
-  (org-pomodoro-mode-line)
   )
 
 (provide 'org-config)
