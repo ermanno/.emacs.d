@@ -13,6 +13,8 @@
   (toggle-read-only))
 (add-hook 'compilation-filter-hook 'ermann/colorize-compilation-buffer)
 
-(use-package vterm)
+(use-package vterm
+  :if (and (executable-find "cmake")
+           (version<= "3.11" (string-trim (shell-command-to-string "cmake --version | head -n1 | awk '{print $3}'")))))
 
 (provide 'shell-config)
