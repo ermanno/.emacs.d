@@ -10,6 +10,9 @@
 (unless (file-exists-p ermann/org-files-directory)
   (make-directory ermann/org-files-directory t))
 
+;; needed to export Anki
+(use-package htmlize)
+
 ;; Configure org-mode settings
 (with-eval-after-load 'org
   (setq org-use-speed-commands t

@@ -6,7 +6,7 @@
  '(package-selected-packages
    '(auto-compile company counsel dap-mode elfeed exec-path-from-shell
                   expand-region flycheck-plantuml flycheck-rust
-                  geiser-mit git-gutter-fringe hl-todo lsp-ivy
+                  geiser-mit git-gutter-fringe hl-todo htmlize lsp-ivy
                   lsp-pyright lsp-ui magit modus-themes
                   multiple-cursors org-anki org-download org-pomodoro
                   perspective projectile rainbow-delimiters
