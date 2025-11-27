@@ -22,7 +22,8 @@
         org-edit-src-content-indentation 0
         org-preview-latex-default-process 'dvisvgm
         org-agenda-files (list ermann/org-files-directory)
-        org-confirm-babel-evaluate nil))
+        org-confirm-babel-evaluate nil
+        org-startup-with-inline-images t))
 
 ;; https://github.com/eyeinsky/org-anki
 ;; install anki connect plug in (id: 2055492159)
