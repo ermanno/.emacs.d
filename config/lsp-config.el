@@ -2,7 +2,7 @@
 (use-package lsp-mode
   :init
   (setq lsp-keymap-prefix "C-c l")
-  :hook ((rust-ts-mode . lsp)
+  :hook ((rust-mode . lsp)
          (go-ts-mode . lsp)
          (lsp-mode . lsp-enable-which-key-integration))
   :commands lsp)
@@ -17,11 +17,6 @@
   :hook (python-mode . (lambda ()
                          (require 'lsp-pyright)
                          (lsp))))
-
-;; rust
-(use-package flycheck-rust
-  :config
-  (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
 
 ;; optionally if you want to use debugger
 (use-package dap-mode)
