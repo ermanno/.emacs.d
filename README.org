@@ -21,5 +21,11 @@ Install rust-analyzer with:
 rustup component add rust-analyzer
 #+end_src
 
+Install rust-script (for Org Babel) with:
+
+#+begin_src bash
+cargo install rust-script
+#+end_src
+
 ** TODO LSP configuration
 Useful configuration to look at: https://www.ovistoica.com/blog/2024-7-05-modern-emacs-typescript-web-tsx-config

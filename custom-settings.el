@@ -8,11 +8,11 @@
                   expand-region flycheck-plantuml flycheck-rust
                   geiser-mit git-gutter-fringe hl-todo htmlize lsp-ivy
                   lsp-pyright lsp-ui magit modus-themes
-                  multiple-cursors org-anki org-download org-pomodoro
-                  perspective projectile rainbow-delimiters
-                  smart-mode-line smartparens smex tide
-                  transpose-frame treesit-auto undo-tree unfill vterm
-                  web-mode yaml-mode yasnippet-snippets))
+                  multiple-cursors ob-rust org-anki org-download
+                  org-pomodoro perspective projectile
+                  rainbow-delimiters smart-mode-line smartparens smex
+                  tide transpose-frame treesit-auto undo-tree unfill
+                  vterm web-mode yaml-mode yasnippet-snippets))
  '(python-shell-interpreter "python3")
  '(warning-suppress-types '((comp))))
 (custom-set-faces

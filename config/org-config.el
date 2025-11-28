@@ -17,6 +17,7 @@
 (with-eval-after-load 'org
   (setq org-use-speed-commands t
         org-src-fontify-natively t
+        org-src-preserve-indentation t
         org-adapt-indentation nil
         org-hide-emphasis-markers t
         org-edit-src-content-indentation 0
@@ -63,13 +64,16 @@
     (org-download-enable)))
 
 ;; org-babel
+(use-package ob-rust)
+
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((shell . t)
    (emacs-lisp . t)
    (python . t)
    (org . t)
-   (plantuml . t)))
+   (plantuml . t)
+   (rust . t)))
 
 ;; Redisplay images after evaluating with C-c C-c
 (add-hook 'org-babel-after-execute-hook
