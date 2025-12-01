@@ -27,5 +27,26 @@ Install rust-script (for Org Babel) with:
 cargo install rust-script
 #+end_src
 
+** TODO TreeSitter issue on Mac
+
+I had the following with Rust, but I have the same problem with Bash, and presumably with other languages as well.
+
+At the moment I have fixed it via the following procedure:
+
+#+begin_src bash
+rm ~/.emacs.d/tree-sitter/libtree-sitter-rust.*
+#+end_src
+
+Then run:
+
+#+begin_src elisp
+(setq treesit-language-source-alist
+      '((rust . ("https://github.com/tree-sitter/tree-sitter-rust" "v0.21.2"))))
+#+end_src
+
+And then ~M-x treesit-install-language-grammar~, selecting ~rust~
+
+I am thinking that maybe it makes sense to use the same procedure to install other grammars as well.
+
 ** TODO LSP configuration
 Useful configuration to look at: https://www.ovistoica.com/blog/2024-7-05-modern-emacs-typescript-web-tsx-config
