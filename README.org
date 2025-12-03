@@ -48,5 +48,7 @@ And then ~M-x treesit-install-language-grammar~, selecting ~rust~
 
 I am thinking that maybe it makes sense to use the same procedure to install other grammars as well.
 
+*Update*: this was https://www.reddit.com/r/emacs/comments/1n6law2/tree_sitter_version_mismatch/
+
 ** TODO LSP configuration
 Useful configuration to look at: https://www.ovistoica.com/blog/2024-7-05-modern-emacs-typescript-web-tsx-config
