@@ -85,6 +85,23 @@ This is flake.nix
 }
 #+end_src
 
+Add the following to =bashrc.sh= and source it again:
+
+#+begin_src bash
+# Nix and Home Manager setup
+if [ -e /home/ermann/.nix-profile/etc/profile.d/nix.sh ]; then
+  . /home/ermann/.nix-profile/etc/profile.d/nix.sh
+fi
+
+if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then
+  . ~/.nix-profile/etc/profile.d/nix.sh
+fi
+
+if [ -e /home/ermann/.nix-profile/etc/profile.d/hm-session-vars.sh ]; then
+  . /home/ermann/.nix-profile/etc/profile.d/hm-session-vars.sh
+fi
+#+end_src
+
 ** Org mode LaTeX configuration
 
 Install =latex= and =dvisvgm=
