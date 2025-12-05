@@ -12,6 +12,9 @@
 (setq x-select-enable-clipboard t
       x-select-enable-primary t)
 
+;; Don't give warning with native compilation
+(setq native-comp-async-report-warnings-errors 'silent)
+
 (use-package projectile
   :init
   (setq projectile-completion-system 'ivy)
