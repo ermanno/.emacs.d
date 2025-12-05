@@ -93,8 +93,6 @@ Install =latex= and =dvisvgm=
 sudo apt install texlive-latex-base dvisvgm
 #+end_src
 
-or
-
 ** Anki
 Current setup requires to install pandoc: https://pandoc.org/installing.html
 
