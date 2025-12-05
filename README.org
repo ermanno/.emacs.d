@@ -1,9 +1,93 @@
 * Emacs configuration
 My personal Emacs configuration.
 
+** Setup with nix and home-manager
+The following kind of works on Fedora, I want to have a setup that works for Mac as well
+
+*** Fedora
+Install nix:
+
+#+begin_src bash
+sh <(curl -L https://nixos.org/nix/install)
+. ~/.nix-profile/etc/profile.d/nix.sh
+#+end_src
+
+Create nix configuration:
+
+#+begin_src bash
+mkdir -p ~/.config/nix
+#+end_src
+
+Create in =~/.config/nix/nix.conf=:
+
+#+begin_src bash
+experimental-features = nix-command flakes
+#+end_src
+
+Install home-manager
+
+#+begin_src bash
+nix run home-manager -- init --switch
+#+end_src
+
+Create home-manager config in =~/.config/home-manager/=
+
+This is =home.nix=
+
+#+begin_src bash
+{ config, pkgs, ... }:
+
+{
+  home.username = "ermann";
+  home.homeDirectory = "/home/ermann";
+  home.stateVersion = "23.11";
+
+  programs.emacs = {
+    enable = true;
+    package = pkgs.emacs-gtk;
+    extraPackages = (epkgs: [ epkgs.treesit-grammars.with-all-grammars ]);
+  };
+
+  programs.home-manager.enable = true;
+}
+#+end_src
+
+This is flake.nix
+
+#+begin_src bash
+{
+  description = "Home Manager configuration for ermann";
+
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+
+  outputs = { self, nixpkgs, home-manager, ... }:
+    let
+      username = "ermann";
+      system = "x86_64-linux";  # Change to "aarch64-linux" for ARM or "x86_64-darwin" for macOS
+    in
+    {
+      # Home Manager configuration
+      homeConfigurations.${username} =
+        home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+          };
+          modules = [ ./home.nix ];
+        };
+    };
+}
+#+end_src
+
 ** Org mode LaTeX configuration
 
-Install ~latex~ and ~dvisvgm~
+Install =latex= and =dvisvgm=
 
 #+begin_src bash
 sudo apt install texlive-latex-base dvisvgm
@@ -27,28 +111,6 @@ Install rust-script (for Org Babel) with:
 cargo install rust-script
 #+end_src
 
-** TODO TreeSitter issue on Mac
-
-I had the following with Rust, but I have the same problem with Bash, and presumably with other languages as well.
-
-At the moment I have fixed it via the following procedure:
-
-#+begin_src bash
-rm ~/.emacs.d/tree-sitter/libtree-sitter-rust.*
-#+end_src
-
-Then run:
-
-#+begin_src elisp
-(setq treesit-language-source-alist
-      '((rust . ("https://github.com/tree-sitter/tree-sitter-rust" "v0.21.2"))))
-#+end_src
-
-And then ~M-x treesit-install-language-grammar~, selecting ~rust~
-
-I am thinking that maybe it makes sense to use the same procedure to install other grammars as well.
-
-*Update*: this was https://www.reddit.com/r/emacs/comments/1n6law2/tree_sitter_version_mismatch/
-
 ** TODO LSP configuration
 Useful configuration to look at: https://www.ovistoica.com/blog/2024-7-05-modern-emacs-typescript-web-tsx-config
+
