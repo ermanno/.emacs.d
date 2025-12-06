@@ -30,7 +30,8 @@
 ;; install anki connect plug in (id: 2055492159)
 (use-package org-anki
   :after org
-  :config (setq org-anki-default-deck "Default"))
+  :config (setq org-anki-default-deck "Default"
+                org-anki-ignored-tags '("noexport")))
 
 (defun ermann/org-mode-hook ()
   "My hook for org mode, setting up spell checking, word wrapping and other niceties."
