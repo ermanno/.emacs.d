@@ -1,8 +1,6 @@
 (use-package treesit-auto
-  :custom
-  (treesit-auto-install 'prompt)
   :config
-  (treesit-auto-add-to-auto-mode-alist 'all)
+  (treesit-auto-add-to-auto-mode-alist)
   (global-treesit-auto-mode))
 
 (provide 'tree-sitter-config)
