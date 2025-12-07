@@ -29,13 +29,4 @@
   :hook (prog-mode . rainbow-delimiters-mode)
   :diminish rainbow-delimiters-mode)
 
-(use-package smart-mode-line
-  :custom
-  (sml/no-confirm-load-theme t)
-  (sml/theme 'automatic)
-  (sml/name-width 32)
-  (sml/shorten-modes nil)
-  (sml/replacer-regexp-list nil)
-  :config (sml/setup))
-
 (provide 'ui-config)
