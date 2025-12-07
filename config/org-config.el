@@ -73,7 +73,8 @@
    (python . t)
    (org . t)
    (plantuml . t)
-   (rust . t)))
+   (rust . t)
+   (java . t)))
 
 ;; Redisplay images after evaluating with C-c C-c
 (add-hook 'org-babel-after-execute-hook
