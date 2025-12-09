@@ -69,7 +69,7 @@ This is flake.nix
   outputs = { self, nixpkgs, home-manager, ... }:
     let
       username = "ermann";
-      system = "x86_64-linux";  # Change to "aarch64-linux" for ARM or "x86_64-darwin" for macOS
+      system = "x86_64-linux";  # Change to "aarch64-darwin" for macOS
     in
     {
       # Home Manager configuration
@@ -96,6 +96,12 @@ fi
 if [ -e ~/.nix-profile/etc/profile.d/hm-session-vars.sh ]; then
   . ~/.nix-profile/etc/profile.d/hm-session-vars.sh
 fi
+#+end_src
+
+Install the packages by running from the ~/.config/home-manager directory the following command:
+
+#+begin_src bash
+nix run home-manager -- init --switch --flake .
 #+end_src
 
 ** Org mode LaTeX configuration
