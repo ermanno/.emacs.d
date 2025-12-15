@@ -77,34 +77,11 @@
 
 (use-package yasnippet-snippets)
 
-;; JavaScript
-(setq js-indent-level 2)
-
-;;;;; Web mode
-(use-package web-mode
-  :mode (("\\.php$" . web-mode)
-         ("\\.html$" . web-mode)))
-
-(use-package company
-  :bind (:map company-active-map
-              ("C-n" . company-select-next)
-              ("C-p" . company-select-previous))
-  :config
-  (setq company-idle-delay 0.3)
-  (global-company-mode t)
-  :diminish company-mode)
-
-;; TypeScript (https://github.com/ananthakumaran/tide)
-(use-package tide
-  :after (typescript-mode company flycheck)
-  :hook ((typescript-mode . tide-setup)
-         (typescript-mode . tide-hl-identifier-mode)
-         (before-save . tide-format-before-save)))
-
 (require 'mac-config)
 (require 'git-config)
 (require 'tree-sitter-config)
 (require 'rust-config)
+(require 'web-config)
 (require 'lsp-config)
 (require 'plantuml-config)
 (require 'org-config)
