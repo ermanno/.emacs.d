@@ -1,14 +1,21 @@
 ;; Org mode
 (require 'org-mouse)
 
-(defcustom ermann/org-files-directory (expand-file-name "~/Documents/org")
+;; setup org and org roam directories
+(defcustom ermann/org-files-directory
+  (expand-file-name (if (file-exists-p "~/Dropbox") "~/Dropbox/org" "~/Documents/org"))
   "Directory for storing org files."
   :type 'directory
   :group 'org)
 
-;; Ensure org directory exists
-(unless (file-exists-p ermann/org-files-directory)
-  (make-directory ermann/org-files-directory t))
+(defcustom ermann/org-roam-files-directory (file-name-concat ermann/org-files-directory "roam")
+  "Directory for storing org roam files."
+  :type 'directory
+  :group 'org)
+
+(dolist (dir (list ermann/org-files-directory ermann/org-roam-files-directory))
+  (unless (file-exists-p dir)
+    (make-directory dir t)))
 
 ;; needed to export Anki
 (use-package htmlize)
@@ -112,5 +119,23 @@
         org-pomodoro-time-format "%m:%s"
         )
   )
+
+(use-package org-roam
+  :ensure t
+  :custom
+  (org-roam-directory (file-truename "~/Documents/org/roam"))
+  :bind (("C-c n l" . org-roam-buffer-toggle)
+         ("C-c n f" . org-roam-node-find)
+         ("C-c n g" . org-roam-graph)
+         ("C-c n i" . org-roam-node-insert)
+         ("C-c n c" . org-roam-capture)
+         ;; Dailies
+         ("C-c n j" . org-roam-dailies-capture-today))
+  :config
+  ;; If you're using a vertical completion framework, you might want a more informative completion interface
+  (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
+  (org-roam-db-autosync-mode)
+  ;; If using org-roam-protocol
+  (require 'org-roam-protocol))
 
 (provide 'org-config)
