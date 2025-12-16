@@ -108,9 +108,18 @@ nix run home-manager -- init --switch --flake .
 
 Install =latex= and =dvisvgm=
 
+For Ubuntu:
+
 #+begin_src bash
 sudo apt install texlive-latex-base dvisvgm
 #+end_src
+
+For Fedora:
+
+#+begin_src bash
+sudo dnf install texlive-base dvisvgm
+#+end_src
+
 
 ** Anki
 Current setup requires to install pandoc: https://pandoc.org/installing.html
