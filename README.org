@@ -117,7 +117,7 @@ sudo apt install texlive-latex-base dvisvgm
 For Fedora:
 
 #+begin_src bash
-sudo dnf install texlive-base dvisvgm
+sudo dnf install texlive-scheme-basic dvisvgm
 #+end_src
 
 
