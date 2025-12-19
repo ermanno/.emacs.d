@@ -34,49 +34,6 @@
 
 (require 'ui-config)
 (require 'ux-config)
-
-;; YAML support
-(use-package yaml-mode
-  :mode "\\.yaml\\'")
-
-;; Markdown support
-(use-package markdown-mode
-  :commands (markdown-mode gfm-mode)
-  :mode (("README\\.md\\'" . gfm-mode)
-         ("\\.md\\'" . markdown-mode)
-         ("\\.markdown\\'" . markdown-mode))
-  :init (setq markdown-command "multimarkdown"))
-
-;; Perspective -- https://systemcrafters.net/effective-emacs-workflow/declutter-your-buffers-perspective-el/
-(use-package perspective
-  :custom (persp-mode-prefix-key (kbd "C-c s"))
-  :bind ("C-x k" . persp-kill-buffer*)
-  :init (persp-mode))
-
-;; Smartparens
-(use-package smartparens
-  :hook (prog-mode)
-  :config
-  (require 'smartparens-config))
-
-;; Scheme
-(use-package geiser-mit
-  :init (progn
-          (setq geiser-mit-binary "/usr/bin/scheme"
-                geiser-active-implementations '(mit))
-          (add-hook 'scheme-mode-hook 'geiser-mode))
-  :commands geiser-mode)
-
-;; yasnippet
-(use-package yasnippet
-  :config
-  (progn (setq yas-verbosity 1
-               yas-wrap-around-region t)
-         (yas-reload-all)
-         (yas-global-mode)))
-
-(use-package yasnippet-snippets)
-
 (require 'mac-config)
 (require 'git-config)
 (require 'tree-sitter-config)
