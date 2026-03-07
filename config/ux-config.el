@@ -20,7 +20,8 @@
 
 (use-package projectile
   :init
-  (setq projectile-completion-system 'ivy)
+  (setq projectile-completion-system 'ivy
+        projectile-mode-line "Projectile")
   :bind-keymap
   ("C-c p" . projectile-command-map))
 
