@@ -10,18 +10,6 @@
 (column-number-mode)
 (show-paren-mode)
 
-(use-package modus-themes
-  :config
-  (load-theme 'modus-operandi :no-confirm)
-
-  (let ((font-height
-         (if (eq system-type 'darwin)
-             150
-           118)))
-
-    (set-face-attribute 'default nil :height font-height))
-  )
-
 (use-package hl-todo
   :config (global-hl-todo-mode))
 
