@@ -34,7 +34,6 @@
 
 (require 'ui-config)
 (require 'ux-config)
-(require 'mac-config)
 (require 'git-config)
 (require 'tree-sitter-config)
 (require 'rust-config)
