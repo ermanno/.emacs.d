@@ -35,4 +35,5 @@
 (require 'ui-config)
 (require 'ux-config)
 (require 'git-config)
+(provide 'org-config)
 (require 'shell-config)
