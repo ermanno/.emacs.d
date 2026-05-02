@@ -35,5 +35,7 @@
 (require 'ui-config)
 (require 'ux-config)
 (require 'git-config)
+(require 'plantuml-config)
+(require 'rust-config)
 (provide 'org-config)
 (require 'shell-config)
