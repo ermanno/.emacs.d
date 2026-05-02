@@ -38,4 +38,5 @@
 (require 'plantuml-config)
 (require 'rust-config)
 (provide 'org-config)
+(provide 'tramp-config)
 (require 'shell-config)
