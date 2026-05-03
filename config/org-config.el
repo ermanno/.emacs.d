@@ -30,7 +30,7 @@
 
   :hook (org-mode . (lambda ()
                       (ispell-change-dictionary "english")
-                      (flyspell-mode)
+                      (flyspell-mode t)
                       (visual-line-mode)))
 
   :config
