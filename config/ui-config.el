@@ -10,6 +10,10 @@
 (column-number-mode)
 (show-paren-mode)
 
+(load-theme 'wombat t)
+(when (eq system-type 'darwin)
+  (set-face-attribute 'default nil :height 150))
+
 (use-package hl-todo
   :config (global-hl-todo-mode))
 
