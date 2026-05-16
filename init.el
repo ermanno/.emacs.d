@@ -37,6 +37,6 @@
 (require 'git-config)
 (require 'plantuml-config)
 (require 'rust-config)
-(provide 'org-config)
-(provide 'tramp-config)
+(require 'org-config)
+(require 'tramp-config)
 (require 'shell-config)
