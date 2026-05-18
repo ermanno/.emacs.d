@@ -2,6 +2,7 @@ org-roam.db
 auto-save-list/
 .org-id-locations
 elpa/
+quelpa/
 *~
 projectile-bookmarks.eld
 recentf
