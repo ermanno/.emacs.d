@@ -4,7 +4,17 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(plantuml-mode auto-compile company counsel dap-mode edit-indirect elfeed exec-path-from-shell expand-region flycheck flycheck-plantuml flycheck-rust geiser-mit git-gutter git-gutter-fringe hl-todo htmlize ivy lsp-ivy lsp-pyright lsp-ui magit markdown-mode modus-themes multiple-cursors ob-rust org-anki org-download org-pomodoro org-roam perspective projectile rainbow-delimiters rust-mode smart-mode-line smartparens smex swiper tide transpose-frame treesit-auto undo-tree unfill vterm web-mode yaml-mode yasnippet yasnippet-snippets))
+   '(auto-compile company counsel dap-mode edit-indirect elfeed
+                  exec-path-from-shell expand-region flycheck
+                  flycheck-plantuml flycheck-rust geiser-mit
+                  git-gutter git-gutter-fringe hl-todo htmlize ivy
+                  lsp-ivy lsp-pyright lsp-ui magit markdown-mode
+                  modus-themes multiple-cursors ob-rust org-anki
+                  org-download org-pomodoro org-roam perspective
+                  projectile rainbow-delimiters rust-mode
+                  smart-mode-line smartparens smex swiper tide
+                  transpose-frame treesit-auto undo-tree unfill vterm
+                  web-mode yaml-mode yasnippet yasnippet-snippets))
  '(python-shell-interpreter "python3")
  '(warning-suppress-types '((comp))))
 (custom-set-faces

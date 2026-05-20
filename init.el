@@ -19,7 +19,6 @@
 
 ;; GNU ELPA is already part of package-archives, add melpa
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
-(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 (unless package-archive-contents
   (package-refresh-contents))
 
@@ -29,17 +28,6 @@
 (setq use-package-verbose t
       use-package-always-ensure t)
 (require 'use-package)
-
-;; quelpa for installing specific package versions
-(unless (package-installed-p 'quelpa)
-  (package-install 'quelpa))
-(require 'quelpa)
-(quelpa
- '(quelpa-use-package
-   :fetcher git
-   :url "https://github.com/quelpa/quelpa-use-package.git"))
-(require 'quelpa-use-package)
-
 (use-package auto-compile
   :config (auto-compile-on-load-mode))
 (setq load-prefer-newer t)
