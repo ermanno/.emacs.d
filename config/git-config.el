@@ -14,10 +14,10 @@
 ;;       (delete-other-windows))))
 
 ;; Git gutter (or fringe if we are in graphics mode)
-(let ((package-name (if (display-graphic-p)
-                        "git-gutter-fringe"
-                      "git-gutter")))
-  (eval `(use-package ,package-name
-           :init (global-git-gutter-mode))))
+(if (display-graphic-p)
+    (use-package git-gutter-fringe
+      :init (global-git-gutter-mode))
+  (use-package git-gutter
+    :init (global-git-gutter-mode)))
 
 (provide 'git-config)

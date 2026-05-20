@@ -17,17 +17,19 @@
       (expand-file-name "config" user-emacs-directory))
 (add-to-list 'load-path config-dir)
 
-;; GNU ELPA is already part of package-archives, add melpa
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+;; GNU ELPA is unreachable from this network; use Tsinghua mirror + melpa
+(setq package-archives
+      '(("gnu" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+        ("melpa" . "https://melpa.org/packages/")))
 (unless package-archive-contents
   (package-refresh-contents))
 
-;; Install use-package if it is not already installed
+;; use-package
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
+(require 'use-package)
 (setq use-package-verbose t
       use-package-always-ensure t)
-(require 'use-package)
 (use-package auto-compile
   :config (auto-compile-on-load-mode))
 (setq load-prefer-newer t)
