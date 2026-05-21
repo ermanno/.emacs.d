@@ -124,8 +124,11 @@
 
 (use-package yasnippet-snippets)
 
-;; Text mode
-(add-hook 'text-mode-hook #'auto-fill-mode)
-(add-hook 'text-mode-hook #'flyspell-mode)
+;; Git commit messages
+(defun my/git-commit-setup ()
+  (when (string-match "COMMIT_EDITMSG" (buffer-name))
+    (auto-fill-mode 1)
+    (flyspell-mode 1)))
+(add-hook 'find-file-hook #'my/git-commit-setup)
 
 (provide 'ux-config)
