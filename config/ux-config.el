@@ -15,6 +15,9 @@
 (setq x-select-enable-clipboard t
       x-select-enable-primary t)
 
+(use-package clipetty
+  :hook (after-init . global-clipetty-mode))
+
 ;; Don't give warning with native compilation
 (setq native-comp-async-report-warnings-errors 'silent)
 
