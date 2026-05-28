@@ -4,7 +4,13 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(clipetty yasnippet-snippets yaml-mode vterm use-package unfill undo-tree transpose-frame smex smartparens rust-mode rainbow-delimiters projectile perspective org-download org-anki ob-rust multiple-cursors htmlize hl-todo git-gutter geiser-mit flycheck-rust flycheck-plantuml expand-region exec-path-from-shell counsel auto-compile)))
+   '(auto-compile clipetty counsel exec-path-from-shell expand-region
+                  flycheck-plantuml flycheck-rust geiser-mit
+                  git-gutter hl-todo htmlize multiple-cursors ob-rust
+                  org-anki org-download org-modern perspective
+                  projectile rainbow-delimiters rust-mode smartparens
+                  smex transpose-frame undo-tree unfill use-package
+                  vterm yaml-mode yasnippet-snippets)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

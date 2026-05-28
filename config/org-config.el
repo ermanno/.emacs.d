@@ -43,6 +43,8 @@
         org-preview-latex-default-process    'dvisvgm
         org-agenda-files                     (list ermann/org-files-directory)
         org-startup-with-inline-images       t
+        org-special-ctrl-a/e                 t
+        org-pretty-entities                  t
         org-confirm-babel-evaluate           (lambda (lang _body)
                                                (not (string= lang "plantuml"))))
   (global-set-key (kbd "C-c c") 'org-capture)
@@ -50,6 +52,11 @@
   :bind (:map org-mode-map
               ("C-c b" . org-insert-structure-template)
               ("C-c l" . ermann/org-link-copy)))
+
+(use-package org-modern
+  :ensure t
+  :config
+  (global-org-modern-mode))
 
 ;; https://github.com/eyeinsky/org-anki — requires AnkiConnect plugin (id: 2055492159)
 (use-package org-anki

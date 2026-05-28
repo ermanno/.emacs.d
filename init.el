@@ -19,7 +19,7 @@
 
 ;; GNU ELPA is unreachable from this network; use Tsinghua mirror + melpa
 (setq package-archives
-      '(("gnu" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+      '(("gnu" . "https://elpa.gnu.org/packages/")
         ("melpa" . "https://melpa.org/packages/")))
 (unless package-archive-contents
   (package-refresh-contents))
