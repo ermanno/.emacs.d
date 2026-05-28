@@ -43,8 +43,7 @@
         org-preview-latex-default-process    'dvisvgm
         org-agenda-files                     (list ermann/org-files-directory)
         org-startup-with-inline-images       t
-        org-special-ctrl-a/e                 t
-        org-pretty-entities                  t
+        org-ellipsis                         "…"
         org-confirm-babel-evaluate           (lambda (lang _body)
                                                (not (string= lang "plantuml"))))
   (global-set-key (kbd "C-c c") 'org-capture)
