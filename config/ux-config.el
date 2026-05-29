@@ -121,11 +121,15 @@
 (use-package yasnippet
   :config
   (progn (setq yas-verbosity 1
-               yas-wrap-around-region t)
+               yas-wrap-around-region t
+               yas-snippet-dirs
+               '("~/.emacs.d/my-snippets"
+                 yasnippet-snippets-dir))
          (yas-reload-all)
-         (yas-global-mode)))
+         (yas-global-mode 1)))
 
-(use-package yasnippet-snippets)
+(use-package yasnippet-snippets
+  :after yasnippet)
 
 ;; Git commit messages
 (defun my/git-commit-setup ()
