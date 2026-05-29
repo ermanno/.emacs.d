@@ -34,18 +34,21 @@
                       (visual-line-mode)))
 
   :config
-  (setq org-use-speed-commands               t
-        org-src-fontify-natively             t
-        org-src-preserve-indentation         t
-        org-adapt-indentation                nil
-        org-hide-emphasis-markers            t
-        org-edit-src-content-indentation     0
-        org-preview-latex-default-process    'dvisvgm
-        org-agenda-files                     (list ermann/org-files-directory)
-        org-startup-with-inline-images       t
-        org-ellipsis                         "…"
-        org-confirm-babel-evaluate           (lambda (lang _body)
-                                               (not (string= lang "plantuml"))))
+  (setq org-auto-align-tags nil
+        org-tags-column 0
+        org-use-speed-commands t
+        org-src-fontify-natively t
+        org-insert-heading-respect-content t
+        org-src-preserve-indentation t
+        org-adapt-indentation nil
+        org-hide-emphasis-markers t
+        org-edit-src-content-indentation 0
+        org-preview-latex-default-process 'dvisvgm
+        org-agenda-files (list ermann/org-files-directory)
+        org-startup-with-inline-images t
+        org-ellipsis "…"
+        org-confirm-babel-evaluate (lambda (lang _body)
+                                     (not (string= lang "plantuml"))))
   (global-set-key (kbd "C-c c") 'org-capture)
 
   :bind (:map org-mode-map
