@@ -56,7 +56,6 @@
               ("C-c l" . ermann/org-link-copy)))
 
 (use-package org-modern
-  :ensure t
   :config
   (global-org-modern-mode))
 

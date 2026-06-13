@@ -91,7 +91,6 @@
 
 ;; Markdown support
 (use-package markdown-mode
-  :ensure t
   :mode ("README\\.md\\'" . gfm-mode)
   :init (setq markdown-command "multimarkdown")
   :bind (:map markdown-mode-map
@@ -137,5 +136,13 @@
     (auto-fill-mode 1)
     (flyspell-mode 1)))
 (add-hook 'find-file-hook #'my/git-commit-setup)
+
+(use-package editorconfig
+  :config
+  (editorconfig-mode 1))
+
+(use-package dtrt-indent
+  :config
+  (dtrt-indent-global-mode 1))
 
 (provide 'ux-config)
